@@ -1,8 +1,8 @@
 ﻿namespace ClassLibrary
 {
-    public class clsAddress
+    public class clsSupplier
     {
-        public clsAddress()
+        public clsSupplier()
         {
         }
     }
