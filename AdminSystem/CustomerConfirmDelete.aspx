@@ -7,6 +7,7 @@
     <title></title>
 </head>
 <body>
+    This is Customer Confirm/Delete page
     <form id="form1" runat="server">
         <div>
         </div>

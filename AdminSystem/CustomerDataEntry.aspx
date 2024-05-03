@@ -7,6 +7,7 @@
     <title></title>
 </head>
 <body>
+    This is Customer Data Entry page
     <form id="form1" runat="server">
         <div>
         </div>
