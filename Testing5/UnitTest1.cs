@@ -10,8 +10,8 @@ namespace Testing5
         [TestMethod]
         public void TestMethod1()
         {
-            clsAddress AnAddess = new clsAddress();
-            Assert.IsNotNull(AnAddess);
+            clsSupplier AnSupplier = new clsSupplier();
+            Assert.IsNotNull(AnSupplier);
         }
     }
 }
