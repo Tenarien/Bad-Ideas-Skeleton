@@ -37,7 +37,7 @@ namespace Testing1
         }
 
         [TestMethod]
-        public void StaffAdressPropertyOK()
+        public void StaffAddressPropertyOK()
         {
             clsStaff aStaff = new clsStaff();
             string TestData = "13 London Road";
