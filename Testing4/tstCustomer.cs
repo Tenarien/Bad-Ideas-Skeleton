@@ -78,12 +78,12 @@ namespace Testing4
 
 
         [TestMethod]
-        public void CustomerAccountCreatedPropertyOK()
+        public void CustomerAccountCreationDatePropertyOK()
         {
             clsCustomer AnCustomer = new clsCustomer();
             DateTime TestData = DateTime.Now.Date;
-            AnCustomer.AccountCreated = TestData;
-            Assert.AreEqual(AnCustomer.AccountCreated, TestData);
+            AnCustomer.AccountCreationDate = TestData;
+            Assert.AreEqual(AnCustomer.AccountCreationDate, TestData);
         }
 
 
