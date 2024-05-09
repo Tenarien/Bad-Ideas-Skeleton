@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ClassLibrary; 
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
@@ -11,4 +12,48 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
+    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnOK_Click(object sender, EventArgs e)
+    {
+        clsOrder AnOrder = new clsOrder();
+        AnOrder.OrderId = Convert.ToInt32(txtOrderId.Text);
+        Session["AnOrder"] = AnOrder; 
+        Response.Redirect("OrderViewer.aspx");
+    
+        AnOrder.CustomerId = Convert.ToInt32(txtCustomerId.Text);
+        Session["AnOrder"] = AnOrder;
+        Response.Redirect("OrderViewer.aspx");
+
+        AnOrder.StaffId = Convert.ToInt32(txtStaffId.Text);
+        Session["AnOrder"] = AnOrder;
+        Response.Redirect("OrderViewer.aspx");
+
+        AnOrder.OrderDate = Convert.ToDateTime(DateTime.Now);
+        Session["AnOrder"] = AnOrder;
+        Response.Redirect("OrderViewer.aspx");
+
+        AnOrder.TotalPrice = Convert.ToInt32(txtTotalPrice.Text);
+        Session["AnOrder"] = AnOrder;
+        Response.Redirect("OrderViewer.aspx");
+
+        AnOrder.ShippingAddress = txtShippingAddress.Text;
+        Session["AnOrder"] = AnOrder;
+        Response.Redirect("OrderViewer.aspx");
+
+        AnOrder.ShippingStatus = chkShippingStatus.Checked;
+        Session["AnOrder"] = AnOrder;
+        Response.Redirect("OrderViewer.aspx");
+
+
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+
+    }
+
 }
