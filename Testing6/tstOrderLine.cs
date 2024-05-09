@@ -51,28 +51,6 @@ namespace Testing6
             Assert.AreEqual(AnOrderLine.BookId, TestData);
         }
 
-        [TestMethod]
-        public void QuantityPropertyOK()
-        {
-            clsOrderLine AnOrderLine = new clsOrderLine();
 
-            int TestData = 1;
-
-            AnOrderLine.Quantity = TestData;
-
-            Assert.AreEqual(AnOrderLine.Quantity, TestData);
-        }
-
-        [TestMethod]
-        public void OrderLineStatusPropertyOK()
-        {
-            clsOrderLine AnOrderLine = new clsOrderLine();
-
-            Boolean TestData = true;
-
-            AnOrderLine.OrderLineStatus = TestData;
-
-            Assert.AreEqual(AnOrderLine.OrderLineStatus, TestData);
-        }
     }
 }

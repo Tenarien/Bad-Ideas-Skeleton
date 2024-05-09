@@ -40,12 +40,21 @@ namespace Testing2
         }
         
         [TestMethod]
-        public void UserIdPropertyOK()
+        public void CustomerIdPropertyOK()
         {
             clsOrder AnOrder = new clsOrder();
             int TestData = 1;
             AnOrder.UserId = TestData;
-            Assert.AreEqual(AnOrder.UserId, TestData);
+            Assert.AreEqual(AnOrder.CustomerId, TestData);
+        }
+
+        [TestMethod]
+        public void StaffIdPropertyOK()
+        {
+            clsOrder AnOrder = new clsOrder();
+            int TestData = 1;
+            AnOrder.StaffId = TestData;
+            Assert.AreEqual(AnOrder.StaffId, TestData);
         }
 
         [TestMethod]
