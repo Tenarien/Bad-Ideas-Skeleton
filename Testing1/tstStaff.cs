@@ -138,7 +138,7 @@ namespace Testing1
             //invoke the method
             Found = aStaff.Find(StaffId);
             //test to see if the result is true
-            if (aStaff.StaffName != "Joe")
+            if (aStaff.StaffName != "John")
             {
                 OK = false;
             }
@@ -159,7 +159,7 @@ namespace Testing1
             //invoke the method
             Found = aStaff.Find(StaffId);
             //test to see if the result is true
-            if (aStaff.StaffAddress != "12 Test Street")
+            if (aStaff.StaffAddress != "123 Test Street")
             {
                 OK = false;
             }
@@ -180,7 +180,7 @@ namespace Testing1
             //invoke the method
             Found = aStaff.Find(StaffId);
             //test to see if the result is true
-            if (aStaff.StaffDate != Convert.ToDateTime("23/12/2022"))
+            if (aStaff.StaffDate != Convert.ToDateTime("15/06/2017"))
             {
                 OK = false;
             }
