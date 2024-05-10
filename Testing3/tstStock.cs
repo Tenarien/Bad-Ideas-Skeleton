@@ -97,6 +97,169 @@ namespace Testing3
             aBook.SupplierId = TestData;
 
             Assert.AreEqual(aBook.SupplierId, TestData);
+
+
+        }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsStock aBook = new clsStock();
+
+            Boolean Found = false;
+
+            Int32 BookId = 21;
+
+            Found = aBook.Find(BookId);
+
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestBookIdFound()
+        {
+            clsStock aBook = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 BookId = 21;
+
+            Found = aBook.Find(BookId);
+
+            if(aBook.BookId != 21)
+            { 
+                OK = false; 
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            clsStock aBook = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 BookId = 21;
+
+            Found = aBook.Find(BookId);
+
+            if (aBook.DateAdded != Convert.ToDateTime("11/04/2024"))
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestTitleFound()
+        {
+            clsStock aBook = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 BookId = 21;
+
+            Found = aBook.Find(BookId);
+
+            if (aBook.Title != "Test Title")
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestPriceFound()
+        {
+            clsStock aBook = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 BookId = 21;
+
+            Found = aBook.Find(BookId);
+
+            if (aBook.Price != 10)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestAvailableFound()
+        {
+            clsStock aBook = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 BookId = 21;
+
+            Found = aBook.Find(BookId);
+
+            if (aBook.Available != true)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestQuantityFound()
+        {
+            clsStock aBook = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 BookId = 21;
+
+            Found = aBook.Find(BookId);
+
+            if (aBook.Quantity != 100)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSupplierIdFound()
+        {
+            clsStock aBook = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 BookId = 21;
+
+            Found = aBook.Find(BookId);
+
+            if (aBook.SupplierId != 22)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
         }
     }
 }
