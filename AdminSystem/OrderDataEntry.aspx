@@ -40,13 +40,16 @@
         <p>
             &nbsp;<asp:CheckBox ID="chkShippingStatus" runat="server" style="z-index: 1; left: 51px; top: 235px; position: absolute" Text="Shipping Status" />
         </p>
-        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 10px; top: 324px; position: absolute" Text="OK" />
+        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 10px; top: 324px; position: absolute" Text="OK" width="60px" />
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 325px; top: 53px; position: absolute" Text="Find" width="60px" />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 17px; top: 271px; position: absolute; height: 21px"></asp:Label>
         <p>
-            <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" style="z-index: 1; left: 89px; top: 325px; position: absolute" Text="Cancel" />
-        </p>
+            &nbsp;</p>
         <p>
             <asp:Label ID="lblStaffId" runat="server" style="z-index: 1; left: 8px; top: 121px; position: absolute" Text="Staff ID"></asp:Label>
+        </p>
+        <p>
+            <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" style="z-index: 1; left: 119px; top: 324px; position: absolute" Text="Cancel" />
         </p>
     </form>
 </body>

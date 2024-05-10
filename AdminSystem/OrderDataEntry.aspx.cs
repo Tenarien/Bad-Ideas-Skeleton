@@ -55,5 +55,24 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsOrder AnOrder = new clsOrder();
+        Int32 OrderId;
+        Boolean Found = false;
+        OrderId = Convert.ToInt32(txtOrderId.Text);
+        Found = AnOrder.Find(OrderId); 
+        if (Found == true)
+        {
+            txtCustomerId.Text = AnOrder.CustomerId.ToString();
+            txtStaffId.Text = AnOrder.StaffId.ToString();
+            txtOrderDate.Text = AnOrder.OrderDate.ToString();
+            txtTotalPrice.Text = AnOrder.TotalPrice.ToString();
+            txtShippingAddress.Text = AnOrder.ShippingAddress;
+            chkShippingStatus.Checked = AnOrder.ShippingStatus; 
 
+
+        }
+
+    }
 }

@@ -89,7 +89,8 @@ namespace Testing2
         {
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
-            Int32 OrderId = 21;
+            Int32 OrderId = 1;
+
             Found = AnOrder.Find(OrderId);
             Assert.IsTrue(Found);
         }
@@ -100,9 +101,10 @@ namespace Testing2
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderId = 21;
+            Int32 OrderId = 1;
+
             Found = AnOrder.Find(OrderId);
-            if (AnOrder.OrderId != 21)
+            if (AnOrder.OrderId != 1)
             {
                 OK = false;
             }
@@ -115,9 +117,10 @@ namespace Testing2
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerId = 21;
+            Int32 CustomerId = 1;
+
             Found = AnOrder.Find(CustomerId);
-            if (AnOrder.CustomerId != 21)
+            if (AnOrder.CustomerId != 1)
             {
                 OK = false;
             }
@@ -130,9 +133,10 @@ namespace Testing2
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StaffId = 21;
+            Int32 StaffId = 1;
+
             Found = AnOrder.Find(StaffId);
-            if (AnOrder.CustomerId != 21)
+            if (AnOrder.CustomerId != 1)
             {
                 OK = false;
             }
@@ -145,7 +149,8 @@ namespace Testing2
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderId = 21;
+            Int32 OrderId = 1;
+
             Found = AnOrder.Find(OrderId);
             if (AnOrder.ShippingStatus != true)
             {
@@ -160,9 +165,10 @@ namespace Testing2
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderId = 21;
+            Int32 OrderId = 1;
+
             Found = AnOrder.Find(OrderId);
-            if (AnOrder.OrderDate != Convert.ToDateTime("23/12/2024"))
+            if (AnOrder.OrderDate != Convert.ToDateTime("12/04/2024"))
             {
                 OK = false;
             }
@@ -176,9 +182,10 @@ namespace Testing2
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderId = 21;
+            Int32 OrderId = 1;
+
             Found = AnOrder.Find(OrderId);
-            if (AnOrder.ShippingAddress != "Test ShippingAddress")
+            if (AnOrder.ShippingAddress != "123 Maple Street\r\nLondon\r\nW1A 1AA\r\nUnited Kingdom")
             {
                  OK = false;
             }
@@ -192,7 +199,8 @@ namespace Testing2
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderId = 21;
+            Int32 OrderId = 1;
+
             Found = AnOrder.Find(OrderId);
             if (AnOrder.TotalPrice != 6)
             {
