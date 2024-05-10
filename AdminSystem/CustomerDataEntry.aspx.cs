@@ -71,7 +71,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //capture account creation date
         AnCustomer.AccountCreationDate = Convert.ToDateTime(DateTime.Now);
         //capture Active check box
-        AnCustomer.Active = chkActive.Checked;
+        AnCustomer.AccountVerification = chkAccountVerification.Checked;
         //store the customer in the session object
         Session["AnCustomer"] = AnCustomer;
         //navigate to the view page
