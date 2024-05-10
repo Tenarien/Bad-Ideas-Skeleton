@@ -103,14 +103,25 @@ namespace ClassLibrary
 
         public bool Find(int bookId)
         {
-            mBookId = 21;
-            mDateAdded = Convert.ToDateTime("11 / 04 / 2024");
-            mTitle = "Test Title";
-            mPrice = 10;
-            mAvailable = true;
-            mQuantity = 100;
-            mSupplierId =22;
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookId", bookId);
+            DB.Execute("sproc_tblStock_FilterByBookId");
+
+            if (DB.Count == 1)
+            {
+                mBookId = Convert.ToInt32(DB.DataTable.Rows[0]["BookId"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mTitle = Convert.ToString(DB.DataTable.Rows[0]["Title"]);
+                mPrice = Convert.ToInt32(DB.DataTable.Rows[0]["Price"]);
+                mAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["Available"]);
+                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
+                mSupplierId = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierId"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

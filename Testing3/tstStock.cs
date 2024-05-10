@@ -108,7 +108,7 @@ namespace Testing3
 
             Boolean Found = false;
 
-            Int32 BookId = 21;
+            Int32 BookId = 5;
 
             Found = aBook.Find(BookId);
 
@@ -124,11 +124,11 @@ namespace Testing3
 
             Boolean OK = true;
 
-            Int32 BookId = 21;
+            Int32 BookId = 5;
 
             Found = aBook.Find(BookId);
 
-            if(aBook.BookId != 21)
+            if(aBook.BookId != 5)
             { 
                 OK = false; 
             }
@@ -145,11 +145,11 @@ namespace Testing3
 
             Boolean OK = true;
 
-            Int32 BookId = 21;
+            Int32 BookId = 5;
 
             Found = aBook.Find(BookId);
 
-            if (aBook.DateAdded != Convert.ToDateTime("11/04/2024"))
+            if (aBook.DateAdded != Convert.ToDateTime("31/01/2024"))
             {
                 OK = false;
             }
@@ -166,11 +166,11 @@ namespace Testing3
 
             Boolean OK = true;
 
-            Int32 BookId = 21;
+            Int32 BookId = 5;
 
             Found = aBook.Find(BookId);
 
-            if (aBook.Title != "Test Title")
+            if (aBook.Title != "P")
             {
                 OK = false;
             }
@@ -187,11 +187,11 @@ namespace Testing3
 
             Boolean OK = true;
 
-            Int32 BookId = 21;
+            Int32 BookId = 5;
 
             Found = aBook.Find(BookId);
 
-            if (aBook.Price != 10)
+            if (aBook.Price != 27)
             {
                 OK = false;
             }
@@ -208,7 +208,7 @@ namespace Testing3
 
             Boolean OK = true;
 
-            Int32 BookId = 21;
+            Int32 BookId = 5;
 
             Found = aBook.Find(BookId);
 
@@ -229,11 +229,11 @@ namespace Testing3
 
             Boolean OK = true;
 
-            Int32 BookId = 21;
+            Int32 BookId = 5;
 
             Found = aBook.Find(BookId);
 
-            if (aBook.Quantity != 100)
+            if (aBook.Quantity != 10)
             {
                 OK = false;
             }
@@ -250,11 +250,11 @@ namespace Testing3
 
             Boolean OK = true;
 
-            Int32 BookId = 21;
+            Int32 BookId = 5;
 
             Found = aBook.Find(BookId);
 
-            if (aBook.SupplierId != 22)
+            if (aBook.SupplierId != 4)
             {
                 OK = false;
             }
