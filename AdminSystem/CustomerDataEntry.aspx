@@ -33,7 +33,7 @@
             <asp:TextBox ID="txtCustomerAccountCreationDate" runat="server" OnTextChanged="txtCustomerAccountCreationDate_TextChanged" style="z-index: 1; left: 116px; top: 222px; position: absolute"></asp:TextBox>
         </p>
         <p>
-            <asp:CheckBox ID="chkActive" runat="server" OnCheckedChanged="chkActive_CheckedChanged" style="z-index: 1; left: 116px; top: 262px; position: absolute; right: 353px" Text="Active" />
+            <asp:CheckBox ID="chkAccountVerification" runat="server" OnCheckedChanged="chkActive_CheckedChanged" style="z-index: 1; left: 116px; top: 262px; position: absolute; right: 353px" Text="AccountVerification" />
         </p>
         <p>
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 300px; position: absolute"></asp:Label>
