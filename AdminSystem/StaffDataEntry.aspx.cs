@@ -29,4 +29,27 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         Response.Redirect("StaffViewer.aspx");
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsStaff aStaff = new clsStaff();
+
+        Int32 StaffId;
+
+        Boolean Found = false;
+
+        StaffId = Convert.ToInt32(txtStaffId.Text);
+
+        Found = aStaff.Find(StaffId);
+
+        if (Found)
+        {
+            txtStaffName.Text = aStaff.StaffName;
+            txtStaffAddress.Text = aStaff.StaffAddress;
+            txtStaffDate.Text = aStaff.StaffDate.ToString();
+            txtStaffRole.Text = aStaff.StaffRole;
+            chkPrivilage.Checked = aStaff.StaffPrivilage;
+            
+        }
+    }
 }
