@@ -123,5 +123,15 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string title, string dateAdded, string price, string quantity, string supplierId)
+        {
+            String Error = "";
+            if(title.Length == 0)
+            {
+                Error = Error + "The title may not be blank : ";
+            }
+            return Error;
+        }
     }
 }
