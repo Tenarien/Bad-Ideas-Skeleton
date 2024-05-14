@@ -139,18 +139,35 @@ namespace ClassLibrary
         }
 
 
-        public bool Find(int customerId)
+        public bool Find(int CustomerId)
         {
-            //set the private data members to the test data value
-            mCustomerId = 1;
-            mCustomerFirstName = "Amanda";
-            mCustomerSurname = "Yian";
-            mCustomerEmail = "p2765879@my365.dmu.ac.uk";
-            mCustomerAddress = "123 abc road";
-            mAccountCreationDate = Convert.ToDateTime(30/04/2024);
-            mAccountVerification = true;
-            //always return true
-            return true;
+            //create an instance of he data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the paramater for the address id to serach for
+            DB.AddParameter("@CustomerId", CustomerId);
+            //if one record is found (there should be either 1 or 0)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members 
+                mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
+                mCustomerFirstName = Convert.ToString(DB.DataTable.Rows[0]["CustomerFirstName"]);
+                mCustomerSurname = Convert.ToString(DB.DataTable.Rows[0]["CustomerSurname"]);
+                mCustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["CustomerEmail"]);
+                mCustomerAddress = Convert.ToString(DB.DataTable.Rows[0]["CustomerAddress"]);
+                mAccountCreationDate = Convert.ToDateTime(DB.DataTable.Rows[0]["AccountCreationDate"]);
+                mAccountVerification = Convert.ToBoolean(DB.DataTable.Rows[0]["AccountVerification"]);
+                //return that everything worked OK
+                return true;
+            }
+
+            //if no record was found
+            else
+            {
+                //return false to show there is a problem
+                return false;  
+            }
+
+           
         }
 
     }
