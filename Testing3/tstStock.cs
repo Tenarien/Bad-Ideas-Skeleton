@@ -1,12 +1,20 @@
 ﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.IO;
 
 namespace Testing3
 {
     [TestClass]
     public class tstStock
     {
+
+        string Title = "A Good Book";
+        string DateAdded = "01/01/2024";
+        string Price = "10";
+        string Quantity = "100";
+        string SupplierId = "2";
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -170,7 +178,7 @@ namespace Testing3
 
             Found = aBook.Find(BookId);
 
-            if (aBook.Title != "P")
+            if (aBook.Title != "Percy Jackson")
             {
                 OK = false;
             }
@@ -191,7 +199,7 @@ namespace Testing3
 
             Found = aBook.Find(BookId);
 
-            if (aBook.Price != 27)
+            if (aBook.Price != 20)
             {
                 OK = false;
             }
@@ -261,5 +269,97 @@ namespace Testing3
 
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void TestValidOK()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TitleMinLessOne()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            string Title = "";
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TitleMin()
+        {
+            //create an instance of the class we want to create
+            clsStock aBook = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "a"; //this should be ok
+            //invoke the method
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void TitleMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock aBook = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "aa"; //this should be ok
+            //invoke the method
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void TitleMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock aBook = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TitleMax()
+        {
+            //create an instance of the class we want to create
+            clsStock aBook = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+                                       //invoke the method
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void TitleMid()
+        {
+            //create an instance of the class we want to create
+            clsStock aBook = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "aaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+                                    //invoke the method
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
     }
 }
