@@ -146,6 +146,8 @@ namespace ClassLibrary
             //add the paramater for the address id to serach for
             DB.AddParameter("@CustomerId", CustomerId);
             //if one record is found (there should be either 1 or 0)
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByCustomerId");
             if (DB.Count == 1)
             {
                 //copy the data from the database to the private data members 
@@ -164,7 +166,7 @@ namespace ClassLibrary
             else
             {
                 //return false to show there is a problem
-                return false;  
+                return false;
             }
 
            

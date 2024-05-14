@@ -14,37 +14,37 @@ public partial class _1_DataEntry : System.Web.UI.Page
     }
 
 
-    protected void txtCustomerId_TextChanged(object sender, EventArgs e)
+    protected void txtCustomerId_Text(object sender, EventArgs e)
     {
 
     }
 
-    protected void txtCustomerFirstName_TextChanged(object sender, EventArgs e)
+    protected void txtCustomerFirstName_Text(object sender, EventArgs e)
     {
 
     }
 
-    protected void txtCustomerSurname_TextChanged(object sender, EventArgs e)
+    protected void txtCustomerSurname_Text(object sender, EventArgs e)
     {
 
     }
 
-    protected void TextBox2_TextChanged(object sender, EventArgs e)
+    protected void txtCustomerEmail_Text(object sender, EventArgs e)
     {
 
     }
 
-    protected void TextBox3_TextChanged(object sender, EventArgs e)
+    protected void txtCustomerAddress_Text(object sender, EventArgs e)
     {
 
     }
 
-    protected void txtCustomerAccountCreationDate_TextChanged(object sender, EventArgs e)
+    protected void txtCustomerAccountCreationDate_Text(object sender, EventArgs e)
     {
 
     }
 
-    protected void chkActive_CheckedChanged(object sender, EventArgs e)
+    protected void chkAccountVerification_Checked(object sender, EventArgs e)
     {
 
     }
@@ -76,5 +76,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["AnCustomer"] = AnCustomer;
         //navigate to the view page
         Response.Redirect("CustomerViewer.aspx");
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //create a new istance of clsCustomer
+        clsCustomer AnCustomer = new clsCustomer();
+        //capture a variable to store the primary key
+        Int32 CustomerId;
+        //create a variable to store the result of the find operation
+        Boolean Found = false;
+        //get the primary key entered by the user
+        CustomerId = Convert.ToInt32(txtCustomerId.Text);  
+        //find the record
+        Found = AnCustomer.Find(CustomerId);
+        //if found
+        if (Found == true)
+        {
+            //display the values of the properties in the form
+            txtCustomerFirstName.Text = AnCustomer.CustomerFirstName;
+            txtCustomerSurname.Text = AnCustomer.CustomerSurname;
+            txtCustomerEmail.Text = AnCustomer.CustomerEmail;
+            txtCustomerAddress.Text = AnCustomer.CustomerAddress;
+            txtCustomerAccountCreationDate.Text = AnCustomer.AccountCreationDate.ToString();
+            chkAccountVerification.Checked = AnCustomer.AccountVerification;
+        }
     }
 }
