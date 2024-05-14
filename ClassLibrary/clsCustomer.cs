@@ -172,5 +172,9 @@ namespace ClassLibrary
            
         }
 
+        public string Valid(string customerFirstName, string customerSurname, string customerEmail, string customerAddress, string accountCreationDate)
+        {
+            return "";
+        }
     }
 }
