@@ -36,4 +36,23 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Navigate to the view page
         Response.Redirect("StockViewer.aspx");
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsStock aBook = new clsStock();
+        Int32 BookId;
+        Boolean Found = false;
+        BookId = Convert.ToInt32(txtBookId.Text);
+        Found = aBook.Find(BookId);
+        if(Found == true)
+        {
+            txtDateAdded.Text = aBook.DateAdded.ToString();
+            txtTitle.Text = aBook.Title;
+            txtPrice.Text = aBook.Price.ToString();
+            txtQuantity.Text = aBook.Quantity.ToString();
+            txtSupplierId.Text = aBook.SupplierId.ToString();
+            chkAvailable.Checked = aBook.Available;
+
+        }
+    }
 }
