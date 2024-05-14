@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace ClassLibrary
@@ -20,8 +21,8 @@ namespace ClassLibrary
         }
 
         private Int32 mCustomerId;
-        public Int32  CustomerId
-       
+        public Int32 CustomerId
+
         {
             get
             {
@@ -129,9 +130,63 @@ namespace ClassLibrary
             {
                 return false;
             }
-            
+
         }
 
+        public string Valid(string customerId, string staffId, string orderDate, string totalPrice, string shippingAddress)
+        {
+            //create a string variable to store the error 
+            String Error = "";
+            //create a temporary variable to store the date values 
+            DateTime DateTemp; 
 
+            //if the ShippingAddress is blank 
+            if (shippingAddress.Length == 0)
+            {
+                //record the error 
+                Error = Error + "The Shipping Address may not be blank : ";
+            }
+            //if the shipping address is greater than 50 characters 
+            if (shippingAddress.Length > 50)
+            {
+                //record the error 
+                Error = Error + "The Shiiping Address must be less than 50 characters : ";
+            }
+            
+            //create an instance of DateTime to compare with DateTemp
+            //in the if statement
+            DateTime DateComp = DateTime.Now.Date;
+
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(orderDate);
+
+                if (DateTemp < DateComp) //compare dateAdded with Date
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateComp)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+
+            //return any error messages 
+            return Error;
+        }
     }
+            
 }
+
+
+ 

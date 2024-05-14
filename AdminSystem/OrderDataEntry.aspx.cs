@@ -69,10 +69,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtOrderDate.Text = AnOrder.OrderDate.ToString();
             txtTotalPrice.Text = AnOrder.TotalPrice.ToString();
             txtShippingAddress.Text = AnOrder.ShippingAddress;
-            chkShippingStatus.Checked = AnOrder.ShippingStatus; 
-
+            chkShippingStatus.Checked = AnOrder.ShippingStatus;
+            lblError.Text = ""; 
 
         }
+        else
+        {
+            lblError.Text = "OrderId not found";
 
+        }
     }
 }
