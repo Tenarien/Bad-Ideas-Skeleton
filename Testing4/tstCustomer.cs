@@ -8,6 +8,12 @@ namespace Testing4
     [TestClass]
     public class tstCustomer
     {
+        //good test data
+        string CustomerFirstName = "Amanda";
+        string CustomerSurname = "Yian";
+        string CustomerEmail = "p2765879@my365.dmu.ac.uk";
+        string CustomerAddress = "125 abc road";
+        string AccountCreationDate = DateTime.Now.ToShortDateString();
 
         /*******INSTANCES OF THE CLASS TEST*******/
 
@@ -264,6 +270,19 @@ namespace Testing4
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //invoke the method
+            Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
         }
 
 
