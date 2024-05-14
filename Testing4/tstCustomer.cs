@@ -1,6 +1,7 @@
 ﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Net;
 
 namespace Testing4
 {
@@ -100,19 +101,12 @@ namespace Testing4
             clsCustomer AnCustomer = new clsCustomer();
             //create boolean variable to store the results of the validation
             Boolean Found = false;
-            //create a boolean variable to record if the data is OK
-            Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerId = 1;
+            Int32 CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
-            //check the address id
-            if (AnCustomer.CustomerId != 1)
-            {
-                OK = false;
-            }
             //test to see if the result is true
-            Assert.IsTrue(OK);
+            Assert.IsTrue(Found);
         }
 
 
@@ -127,11 +121,11 @@ namespace Testing4
             //create a boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerId = 1;
+            Int32 CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the Customer Id property
-            if (AnCustomer.CustomerId != 1)
+            if (AnCustomer.CustomerId != 2)
             {
                 OK = false;
             }
@@ -149,11 +143,11 @@ namespace Testing4
             //create a boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerId = 1;
+            Int32 CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the Customer first name property
-            if (AnCustomer.CustomerFirstName != "Amanda")
+            if (AnCustomer.CustomerFirstName != "a")
             {
                 OK = false;
             }
@@ -171,11 +165,11 @@ namespace Testing4
             //create a boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerId = 1;
+            Int32 CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the Customer surname property
-            if (AnCustomer.CustomerSurname != "Yian")
+            if (AnCustomer.CustomerSurname != "a")
             {
                 OK = false;
             }
@@ -193,11 +187,11 @@ namespace Testing4
             //create a boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerId = 1;
+            Int32 CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the Customer email property
-            if (AnCustomer.CustomerEmail != "p2765879@my365.dmu.ac.uk")
+            if (AnCustomer.CustomerEmail != "a@dmu.ac.uk")
             {
                 OK = false;
             }
@@ -215,11 +209,11 @@ namespace Testing4
             //create a boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerId = 1;
+            Int32 CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the Customer address property
-            if (AnCustomer.CustomerAddress != "123 abc road")
+            if (AnCustomer.CustomerAddress != "125 abc road")
             {
                 OK = false;
             }
@@ -237,11 +231,11 @@ namespace Testing4
             //create a boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerId = 1;
+            Int32 CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the AccountCreationDate property
-            if (AnCustomer.AccountCreationDate != Convert.ToDateTime(30/04/2024))
+            if (AnCustomer.AccountCreationDate != Convert.ToDateTime("30/04/2024"))
             {
                 OK = false;
             }
@@ -260,7 +254,7 @@ namespace Testing4
             //create a boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerId = 1;
+            Int32 CustomerId = 2;
             //invoke the method
             Found = AnCustomer.Find(CustomerId);
             //check the Customer address property
