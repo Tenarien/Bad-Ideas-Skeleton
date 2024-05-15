@@ -325,7 +325,8 @@ namespace Testing3
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string Title = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string Title = "";
+            Title = Title.PadRight(49, 'a');
             //invoke the method
             Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
             //test to see that the result is correct
@@ -340,12 +341,14 @@ namespace Testing3
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string Title = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
-                                       //invoke the method
+            string Title = "";
+            Title = Title.PadRight(50, 'a');
+            //invoke the method
             Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
         [TestMethod]
         public void TitleMid()
         {
@@ -354,11 +357,44 @@ namespace Testing3
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string Title = "aaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
-                                    //invoke the method
+            string Title = "";
+            Title = Title.PadRight(25, 'a');
+            //invoke the method
             Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TitleMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock aBook = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "";
+            Title = Title.PadRight(51, 'a');
+            //invoke the method
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TitleExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStock aBook = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "";
+            Title = Title.PadRight(500, 'a');
+            //invoke the method
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
         }
 
     }
