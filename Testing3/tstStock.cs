@@ -11,7 +11,7 @@ namespace Testing3
 
         string Title = "A Good Book";
         string DateAdded = "01/01/2024";
-        string Price = "10";
+        string Price = "9.99";
         string Quantity = "100";
         string SupplierId = "2";
 
@@ -64,7 +64,7 @@ namespace Testing3
         {
             clsStock aBook = new clsStock();
 
-            double TestData = 1.99;
+            decimal TestData = 1.99m;
 
             aBook.Price = TestData;
 
@@ -199,7 +199,7 @@ namespace Testing3
 
             Found = aBook.Find(BookId);
 
-            if (aBook.Price != 20)
+            if (aBook.Price != 19.99m)
             {
                 OK = false;
             }
