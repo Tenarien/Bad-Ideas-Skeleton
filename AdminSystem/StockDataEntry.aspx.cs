@@ -24,7 +24,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Capture the date added
         aBook.DateAdded = Convert.ToDateTime(DateTime.Now);
         //Capture the price
-        aBook.Price = Convert.ToInt64(txtPrice.Text);
+        aBook.Price = Convert.ToDecimal(txtPrice.Text);
         //Capture the quantity
         aBook.Quantity = Convert.ToInt32(txtQuantity.Text);
         //Capture the supplier id

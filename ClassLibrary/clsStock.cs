@@ -7,7 +7,7 @@ namespace ClassLibrary
         private Int32 mBookId;
         private DateTime mDateAdded;
         private string mTitle;
-        private double mPrice;
+        private decimal mPrice;
         private bool mAvailable;
         private Int32 mQuantity;
         private Int32 mSupplierId;
@@ -52,7 +52,7 @@ namespace ClassLibrary
                 mTitle = value;
             }
         }
-        public double Price
+        public decimal Price
         {
             get
             {
@@ -112,7 +112,7 @@ namespace ClassLibrary
                 mBookId = Convert.ToInt32(DB.DataTable.Rows[0]["BookId"]);
                 mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
                 mTitle = Convert.ToString(DB.DataTable.Rows[0]["Title"]);
-                mPrice = Convert.ToInt32(DB.DataTable.Rows[0]["Price"]);
+                mPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
                 mAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["Available"]);
                 mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
                 mSupplierId = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierId"]);
