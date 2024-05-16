@@ -128,9 +128,67 @@ namespace ClassLibrary
                 return true;
             }
             else
-            { 
+            {
                 return false;
             }
+        }
+
+        public string Valid(string staffId, string staffName, string staffAddress, string staffDate, string staffRole)
+        {
+            String Error = "";
+
+            DateTime DateTemp;
+
+            if (staffName.Length == 0)
+            {
+                Error = Error + "The staff name may not be blank: ";
+            }
+            if (staffName.Length > 50)
+            {
+                Error = Error + "The staff name must be less than 50 characters: ";
+
+            }
+
+            if (staffAddress.Length == 0)
+            {
+                Error = Error + "The staff address may not be blank: ";
+            }
+            if (staffAddress.Length > 50)
+            {
+                Error = Error + "The staff address must be less than 50 characters: ";
+
+            }
+            
+            try
+            {
+                DateTemp = Convert.ToDateTime(staffDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past: ";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future: ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date: ";
+            }
+
+            if (staffRole.Length == 0)
+            {
+                Error = Error + "The staff name may not be blank: ";
+            }
+            if (staffRole.Length > 50)
+            {
+                Error = Error + "The staff name must be less than 50 characters: ";
+
+            }
+
+
+            return Error;
         }
     }
 }
