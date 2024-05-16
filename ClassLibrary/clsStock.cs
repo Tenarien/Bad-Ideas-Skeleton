@@ -127,6 +127,8 @@ namespace ClassLibrary
         public string Valid(string title, string dateAdded, string price, string quantity, string supplierId)
         {
             String Error = "";
+            DateTime DateTemp;
+            Decimal PriceTemp;
 
             if(title.Length == 0)
             {
@@ -137,6 +139,37 @@ namespace ClassLibrary
             {
                 Error = Error + "The title may not exceed 50 characters : ";
             }
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date";
+            }
+
+            try
+            {
+                PriceTemp = Convert.ToDecimal(price);
+                if (PriceTemp < 0.00m)
+                {
+                    Error = Error + "The price cannot be negative : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The price was not a valid price";
+            }
+
             return Error;
         }
     }

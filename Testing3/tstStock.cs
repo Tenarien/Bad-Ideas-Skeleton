@@ -10,7 +10,7 @@ namespace Testing3
     {
 
         string Title = "A Good Book";
-        string DateAdded = "01/01/2024";
+        string DateAdded = DateTime.Now.ToShortDateString();
         string Price = "9.99";
         string Quantity = "100";
         string SupplierId = "2";
@@ -397,5 +397,168 @@ namespace Testing3
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
+        public void DateAddedExtremeMin()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            string DateAdded = TestDate.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock aBook = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            TestDate = TestDate.AddDays(-1);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            //create an instance of the class we want to create
+            clsStock aBook = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock aBook = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            TestDate = TestDate.AddDays(1);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStock aBook = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            TestDate = TestDate.AddDays(100);
+            //convert the date variable to a string variable
+            string DateAdded = TestDate.ToString();
+            //invoke the method
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedInvalidData()
+        {
+            //create an instance of the class we want to create
+            clsStock aBook = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //convert the date variable to a string variable
+            string DateAdded = "This is not a date";
+            //invoke the method
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceExtremeMin()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Decimal TestPrice = -100.00m;
+            string Price = TestPrice.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMinLessOne()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Decimal TestPrice = -1.00m;
+            string Price = TestPrice.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMin()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Decimal TestPrice = 0.00m;
+            string Price = TestPrice.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMinPlusOne()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Decimal TestPrice = 1.00m;
+            string Price = TestPrice.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceInvalidData()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            string Price = "This is not a number";
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }
