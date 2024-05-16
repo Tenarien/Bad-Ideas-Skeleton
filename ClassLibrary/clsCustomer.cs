@@ -172,9 +172,97 @@ namespace ClassLibrary
            
         }
 
+
         public string Valid(string customerFirstName, string customerSurname, string customerEmail, string customerAddress, string accountCreationDate)
         {
-            return "";
+            //create a string variable to store the error
+            String Error = "";
+            //create a temp variable to store the date values
+            DateTime DateTemp;
+
+            //if first name is blank
+            if (customerFirstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Customer First Name may not be blank: ";
+            }
+
+            if (customerFirstName.Length > 20)
+            {
+                //record the error
+                Error = Error + "The Customer First Name may not be more than 20 characters: ";
+            }
+
+            //if surname is blank
+            if (customerSurname.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Customer First Name may not be blank: ";
+            }
+
+            if (customerSurname.Length > 20)
+            {
+                //record the error
+                Error = Error + "The Customer First Name may not be more than 20 characters: ";
+            }
+
+            //if email is blank
+            if (customerEmail.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Customer First Name may not be blank: ";
+            }
+
+            if (customerEmail.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Customer First Name may not be more than 50 characters: ";
+            }
+
+            //if address is blank
+            if (customerAddress.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Customer First Name may not be blank: ";
+            }
+
+            if (customerAddress.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Customer First Name may not be more than 50 characters: ";
+            }
+
+            //create an instance of DateTime to compare with DateTemp
+            //in the if statemets
+            DateTime DateComp = DateTime.Now.Date;
+
+            try
+            {
+                //copy the AccountCreationDate variable
+                DateTemp = Convert.ToDateTime(accountCreationDate);
+                //check to see if the date is les than todays date
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past: ";
+                }
+
+                //check to see if the date is greater than rodays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future: ";
+                }
+            }
+
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date";
+            }
+
+            //returm any error messages
+            return Error;
         }
+
+
     }
 }
