@@ -17,8 +17,13 @@ protected void btnok_Click(object sender, EventArgs e)
     {
         // create a new instance of clsSupplier
         clsSupplier AnSupplier = new clsSupplier();
-        // capture the supplierid
+        // capture the supplierName
 
 
+        AnSupplier.SupplierName = txtSupplierName.Text;
+        //store the ADDRESS IN THE SESSION OBJECT
+        Session["AnSupplier"] = AnSupplier;
+        //navigate to view page
+        Response.Redirect("SupplierViewer.aspx");
     }
 }
