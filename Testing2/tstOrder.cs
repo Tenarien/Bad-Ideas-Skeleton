@@ -17,7 +17,7 @@ namespace Testing2
         string CustomerId = "1";
         string StaffId = "1";
         string OrderDate = DateTime.Now.ToShortDateString();
-        string TotalPrice = "6";
+        decimal TotalPrice = (decimal)6.50;
         string ShippingAddress = "123 Maple Street London W1A 1AA United Kingdom";
 
 
@@ -211,7 +211,7 @@ namespace Testing2
             Int32 OrderId = 1;
 
             Found = AnOrder.Find(OrderId);
-            if (AnOrder.TotalPrice != 6)
+            if (AnOrder.TotalPrice !=(decimal) 6.50)
             {
                 OK = false;
             }
@@ -459,6 +459,36 @@ namespace Testing2
         }
 
         
+
+        [TestMethod]
+        public void TotalPriceMin()
+        {
+            //create an instance of the class we want to create 
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            decimal TotalPrice = (decimal) 0;
+            //invoke the method
+            Error = AnOrder.Valid(CustomerId, StaffId, OrderDate, TotalPrice, ShippingAddress);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }
