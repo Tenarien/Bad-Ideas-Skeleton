@@ -7,9 +7,11 @@
     <title></title>
 </head>
 <body>
+    This is the Address Book Viewer Page
     <form id="form1" runat="server">
         <div>
         </div>
     </form>
 </body>
 </html>
+
