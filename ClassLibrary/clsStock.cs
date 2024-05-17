@@ -156,7 +156,7 @@ namespace ClassLibrary
             }
             catch
             {
-                Error = Error + "The date was not a valid date";
+                Error = Error + "The date was not a valid date : ";
             }
 
             try
@@ -169,7 +169,7 @@ namespace ClassLibrary
             }
             catch
             {
-                Error = Error + "The price was not a valid price";
+                Error = Error + "The price was not a valid price : ";
             }
 
             try
@@ -182,7 +182,7 @@ namespace ClassLibrary
             }
             catch
             {
-                Error = Error + "The quantity was not a valid quantity";
+                Error = Error + "The quantity was not a valid quantity : ";
             }
 
             try
@@ -190,12 +190,12 @@ namespace ClassLibrary
                 SupplierIdTemp = Convert.ToInt32(supplierId);
                 if (SupplierIdTemp < 1)
                 {
-                    Error = Error + "The supplier ID cannot be negative : ";
+                    Error = Error + "The supplier ID cannot be less than 1 : ";
                 }
             }
             catch
             {
-                Error = Error + "The supplier ID was not a valid ID";
+                Error = Error + "The supplier ID was not a valid ID : ";
             }
 
             return Error;
