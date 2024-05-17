@@ -133,7 +133,7 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string staffId, string staffName, string staffAddress, string staffDate, string staffRole)
+        public string Valid(string staffName, string staffAddress, string staffDate, string staffRole)
         {
             String Error = "";
 
