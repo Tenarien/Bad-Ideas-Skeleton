@@ -133,7 +133,7 @@ namespace ClassLibrary
 
         }
 
-        public string Valid(string customerId, string staffId, string orderDate, string totalPrice, string shippingAddress)
+        public string Valid(string customerId, string staffId, string orderDate, decimal totalPrice, string shippingAddress)
         {
             //create a string variable to store the error 
             String Error = "";
@@ -180,9 +180,9 @@ namespace ClassLibrary
                 Error = Error + "The date was not a valid date : ";
             }
 
-
-            //return any error messages 
-            return Error;
+           
+                //return any error messages 
+                return Error;
         }
     }
             

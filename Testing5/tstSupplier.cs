@@ -5,7 +5,8 @@ using System;
 namespace Testing5
 {
     [TestClass]
-    public class UnitTest1
+    public class tstSupplier
+
     {
         [TestMethod]
         public void TestMethod1()
@@ -14,100 +15,70 @@ namespace Testing5
             Assert.IsNotNull(AnSupplier);
         }
 
+
         [TestMethod]
-        public void ActivePropertyOK()
+        public void SupplierId()
         {
             //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
+            clsSupplier AnSupplier = new clsSupplier();
             //create some test data to assign to the property
-            Boolean TestData = true;
+            Int32 TestData = 1;
             //assign the data to the property
-            AnAddress.Active = TestData;
+            AnSupplier.SupplierId = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.Active, TestData);
+            Assert.AreEqual(AnSupplier.SupplierId, TestData);
         }
 
         [TestMethod]
-        public void DateAddedPropertyOK()
+        public void ContractDatePropertyOK()
         {
             //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
+            clsSupplier AnSupplier = new clsSupplier();
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            AnAddress.DateAdded = TestData;
+            AnSupplier.ContractDate = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.DateAdded, TestData);
+            Assert.AreEqual(AnSupplier.ContractDate, TestData);
+
         }
 
         [TestMethod]
-        public void AddressIdPropertyOK()
+        public void SupplierNamePropertyOK()
         {
             //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
+            clsSupplier AnSupplier = new clsSupplier();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            string TestData = "Sharon";
             //assign the data to the property
-            AnAddress.AddressId = TestData;
+            AnSupplier.SupplierName = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.AddressId, TestData);
-        }
-
-
-
-        [TestMethod]
-        public void CountyCodePropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
-            //create some test data to assign to the property
-            Int32 TestData = 1;
-            //assign the data to the property
-            AnAddress.CountyCode = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.CountyCode, TestData);
+            Assert.AreEqual(AnSupplier.SupplierName, TestData);
         }
 
         [TestMethod]
-        public void HouseNoPropertyOK()
+        public void SupplierAddressPropertyOK()
         {
             //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
+            clsSupplier AnSupplier = new clsSupplier();
             //create some test data to assign to the property
-            string TestData = "21b";
+            string TestData = "london";
             //assign the data to the property
-            AnAddress.HouseNo = TestData;
+            AnSupplier.SupplierAddress = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.HouseNo, TestData);
+            Assert.AreEqual(AnSupplier.SupplierAddress, TestData);
         }
-
         [TestMethod]
-        public void PostCodePropertyOK()
+        public void AvailableSupplierPropertyOK()
         {
             //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
+            clsSupplier AnSupplier = new clsSupplier();
             //create some test data to assign to the property
-            string TestData = "LE1 4AB";
+            Boolean TestData = true;
             //assign the data to the property
-            AnAddress.PostCode = TestData;
+            AnSupplier.AvailableSupplier = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.PostCode, TestData);
+            Assert.AreEqual(AnSupplier.AvailableSupplier, TestData);
         }
-
-        [TestMethod]
-        public void StreetPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsAddress AnAddress = new clsAddress();
-            //create some test data to assign to the property
-            string TestData = "Some Street";
-            //assign the data to the property
-            AnAddress.Street = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AnAddress.Street, TestData);
-        }
-
-
     }
 }
-
