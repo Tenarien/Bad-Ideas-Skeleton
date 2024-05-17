@@ -17,17 +17,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         clsStaff aStaff = new clsStaff();
 
-        Session["aStaff"] = aStaff;
+        string StaffName = txtStaffName.Text;
+        string StaffAddress = txtStaffAddress.Text;
+        string StaffDate = txtStaffDate.Text;
+        string StaffRole = txtStaffRole.Text;
+        string StaffPrivilage = chkPrivilage.Text;
 
-        //Capture all input data
-        aStaff.StaffId = Convert.ToInt32(txtStaffId.Text);
-        aStaff.StaffName = txtStaffName.Text;
-        aStaff.StaffAddress = txtStaffAddress.Text;
-        aStaff.StaffDate = Convert.ToDateTime(txtStaffDate.Text);
-        aStaff.StaffRole = txtStaffRole.Text;
-        aStaff.StaffPrivilage = chkPrivilage.Checked;
+        string Error = "";
 
-        Response.Redirect("StaffViewer.aspx");
+        Error = aStaff.Valid(StaffName, StaffAddress, StaffDate, StaffRole);
+        if (Error == "")
+        {
+            aStaff.StaffName = StaffName;
+            aStaff.StaffAddress = StaffAddress;
+            aStaff.StaffDate = Convert.ToDateTime(StaffDate);
+            aStaff.StaffRole = StaffRole;
+            Session["aStaff"] = aStaff;
+            Response.Redirect("StaffViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

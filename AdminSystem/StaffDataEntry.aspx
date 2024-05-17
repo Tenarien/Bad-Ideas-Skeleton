@@ -40,6 +40,6 @@
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 317px; top: 223px; position: absolute" Text="Cancel" />
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 231px; top: 223px; position: absolute;" Text="Confirm" />
     </form>
-     <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 76px; top: 187px; position: absolute" Text="Error" width="128px"></asp:Label>
+     <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 76px; top: 187px; position: absolute" Text="" ForeColor="Red" width="128px"></asp:Label>
 </body>
 </html>
