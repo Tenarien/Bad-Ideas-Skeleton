@@ -197,39 +197,39 @@ namespace ClassLibrary
             if (customerSurname.Length == 0)
             {
                 //record the error
-                Error = Error + "The Customer First Name may not be blank: ";
+                Error = Error + "The Customer Surname may not be blank: ";
             }
 
             if (customerSurname.Length > 20)
             {
                 //record the error
-                Error = Error + "The Customer First Name may not be more than 20 characters: ";
+                Error = Error + "The Customer Surname may not be more than 20 characters: ";
             }
 
             //if email is blank
             if (customerEmail.Length == 0)
             {
                 //record the error
-                Error = Error + "The Customer First Name may not be blank: ";
+                Error = Error + "The Customer Email may not be blank: ";
             }
 
             if (customerEmail.Length > 50)
             {
                 //record the error
-                Error = Error + "The Customer First Name may not be more than 50 characters: ";
+                Error = Error + "The Customer Email may not be more than 50 characters: ";
             }
 
             //if address is blank
             if (customerAddress.Length == 0)
             {
                 //record the error
-                Error = Error + "The Customer First Name may not be blank: ";
+                Error = Error + "The Customer Address may not be blank: ";
             }
 
             if (customerAddress.Length > 50)
             {
                 //record the error
-                Error = Error + "The Customer First Name may not be more than 50 characters: ";
+                Error = Error + "The Customer Address may not be more than 50 characters: ";
             }
 
             //create an instance of DateTime to compare with DateTemp
