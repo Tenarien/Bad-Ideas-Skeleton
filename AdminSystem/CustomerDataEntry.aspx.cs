@@ -58,24 +58,45 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new istance of clsCustomer
         clsCustomer AnCustomer = new clsCustomer();
-        //capture customer ID
-        AnCustomer.CustomerId = Convert.ToInt32(txtCustomerId.Text);
-        //capture customer surname
-        AnCustomer.CustomerSurname = txtCustomerSurname.Text;
         //capture customer first name
-        AnCustomer.CustomerFirstName = txtCustomerFirstName.Text;
+        string CustomerFirstName = txtCustomerFirstName.Text;
+        //capture customer surname
+        string CustomerSurname = txtCustomerSurname.Text;
         //capture customer email
-        AnCustomer.CustomerEmail = txtCustomerEmail.Text;
+        string CustomerEmail = txtCustomerEmail.Text;
         //capture customer address
-        AnCustomer.CustomerAddress = txtCustomerAddress.Text;
+        string CustomerAddress = txtCustomerAddress.Text;
         //capture account creation date
-        AnCustomer.AccountCreationDate = Convert.ToDateTime(DateTime.Now);
-        //capture Active check box
-        AnCustomer.AccountVerification = chkAccountVerification.Checked;
-        //store the customer in the session object
-        Session["AnCustomer"] = AnCustomer;
-        //navigate to the view page
-        Response.Redirect("CustomerViewer.aspx");
+        string AccountCreationDate = txtCustomerAccountCreationDate.Text;
+        //capture verification check box
+        string AccountVerification = chkAccountVerification.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
+        if (Error == "")
+        {
+            //capture customer fist name
+            AnCustomer.CustomerFirstName = CustomerFirstName;
+            //capture customer surname
+            AnCustomer.CustomerSurname = CustomerSurname;
+            //capture custoemr email
+            AnCustomer.CustomerEmail = CustomerEmail;
+            //capture customer address
+            AnCustomer.CustomerAddress = CustomerAddress;
+            //capture account creation date
+            AnCustomer.AccountCreationDate = Convert.ToDateTime(AccountCreationDate);
+            //store the customer in the session object
+            Session["AnCustomer"] = AnCustomer;
+            //navigate to the view page
+            Response.Redirect("CustomerViewer.aspx");
+        }
+
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
