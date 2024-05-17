@@ -18,23 +18,45 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Create a new instance of clsStock
         clsStock aBook = new clsStock();
         //Capture the title
-        aBook.Title = txtTitle.Text;
-        //Capture the book id
-        aBook.BookId = Convert.ToInt32(txtBookId.Text);
+        string Title = txtTitle.Text;
         //Capture the date added
-        aBook.DateAdded = Convert.ToDateTime(DateTime.Now);
+        string DateAdded = txtDateAdded.Text;
         //Capture the price
-        aBook.Price = Convert.ToDecimal(txtPrice.Text);
+        string Price = txtPrice.Text;
         //Capture the quantity
-        aBook.Quantity = Convert.ToInt32(txtQuantity.Text);
+        string Quantity = txtQuantity.Text;
         //Capture the supplier id
-        aBook.SupplierId = Convert.ToInt32(txtSupplierId.Text);
+        string SupplierId = txtSupplierId.Text;
+        //capture the book ID
+        string BookId = txtBookId.Text;
         //Capture the availability
-        aBook.Available = chkAvailable.Checked;
-        //Store the book in the session object
-        Session["aBook"] = aBook;
-        //Navigate to the view page
-        Response.Redirect("StockViewer.aspx");
+        string Available = chkAvailable.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+        if(Error == "")
+        {
+            //Capture the title
+            aBook.Title = txtTitle.Text;
+            //Capture the date added
+            aBook.DateAdded = Convert.ToDateTime(DateTime.Now);
+            //Capture the price
+            aBook.Price = Convert.ToDecimal(txtPrice.Text);
+            //Capture the quantity
+            aBook.Quantity = Convert.ToInt32(txtQuantity.Text);
+            //Capture the supplier id
+            aBook.SupplierId = Convert.ToInt32(txtSupplierId.Text);
+            //Store the book in the session object
+            Session["aBook"] = aBook;
+            //Navigate to the view page
+            Response.Redirect("StockViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

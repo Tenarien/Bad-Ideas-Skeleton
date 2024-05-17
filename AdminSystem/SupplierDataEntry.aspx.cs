@@ -10,20 +10,23 @@ public partial class _1_DataEntry : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+       
+            
 
     }
 
 protected void btnok_Click(object sender, EventArgs e)
     {
-        // create a new instance of clsSupplier
         clsSupplier AnSupplier = new clsSupplier();
-        // capture the supplierName
-
-
-        AnSupplier.SupplierName = txtSupplierName.Text;
-        //store the ADDRESS IN THE SESSION OBJECT
+        //capture all input data
         Session["AnSupplier"] = AnSupplier;
-        //navigate to view page
+        AnSupplier.SupplierId = Convert.ToInt32(txtSupplierId.Text);
+        AnSupplier.SupplierName = txtSupplierName.Text;
+        AnSupplier.ContractDate = Convert.ToDateTime(DateTime.Now);
+        AnSupplier.AvailableSupplier = chkAvailableSupplier.Checked;
+        AnSupplier.SupplierAddress = TxtSupplierAddress.Text;
+
         Response.Redirect("SupplierViewer.aspx");
+
     }
 }
