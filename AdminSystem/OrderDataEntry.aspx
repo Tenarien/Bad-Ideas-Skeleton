@@ -2,11 +2,6 @@
 
 <!DOCTYPE html>
 <script runat="server">
-
-    protected void btnOK_Click(object sender, EventArgs e)
-    {
-
-    }
 </script>
 
 
@@ -23,19 +18,19 @@
         </p>
         <p>
             <asp:Label ID="lblOrderId0" runat="server" style="z-index: 1; left: 6px; top: 56px; position: absolute" Text="Order ID" width="107px"></asp:Label>
-            <asp:Label ID="lblCustomerId" runat="server" style="z-index: 1; left: 7px; top: 91px; position: absolute" Text="Customer ID" width="107px"></asp:Label>
-            <asp:TextBox ID="txtStaffId" runat="server" style="z-index: 1; left: 131px; top: 114px; position: absolute"></asp:TextBox>
+            <asp:Label ID="lblCustomerId" runat="server" style="z-index: 1; left: 6px; top: 91px; position: absolute" Text="Customer ID" width="107px"></asp:Label>
+            <asp:TextBox ID="txtStaffId" runat="server" style="z-index: 1; left: 130px; top: 114px; position: absolute" width="128px"></asp:TextBox>
         </p>
         <asp:TextBox ID="txtCustomerId" runat="server" style="z-index: 1; left: 130px; top: 87px; position: absolute" width="128px"></asp:TextBox>
         <asp:TextBox ID="txtOrderDate" runat="server" style="z-index: 1; left: 130px; top: 143px; position: absolute" width="128px"></asp:TextBox>
-        <asp:Label ID="lblOrderDate" runat="server" style="z-index: 1; left: 3px; top: 136px; position: absolute; height: 19px; margin-top: 8px" Text="Order Date" width="107px"></asp:Label>
+        <asp:Label ID="lblOrderDate" runat="server" style="z-index: 1; left: 6px; top: 136px; position: absolute; height: 19px; margin-top: 8px" Text="Order Date" width="107px"></asp:Label>
         <p>
             &nbsp;</p>
-        <asp:Label ID="lblTotalPrice" runat="server" style="z-index: 1; left: 5px; top: 179px; position: absolute" Text="Total Price" width="107px"></asp:Label>
+        <asp:Label ID="lblTotalPrice" runat="server" style="z-index: 1; left: 6px; top: 179px; position: absolute" Text="Total Price" width="107px"></asp:Label>
         <p>
-            <asp:TextBox ID="txtTotalPrice" runat="server" style="z-index: 1; left: 130px; position: absolute; top: 175px"></asp:TextBox>
+            <asp:TextBox ID="txtTotalPrice" runat="server" style="z-index: 1; left: 130px; position: absolute; top: 175px" width="128px"></asp:TextBox>
             <asp:Label ID="lblShippingAddress" runat="server" style="z-index: 1; left: 6px; top: 204px; position: absolute" Text="Shipping Address"></asp:Label>
-            <asp:TextBox ID="txtShippingAddress" runat="server" style="z-index: 1; left: 130px; top: 205px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtShippingAddress" runat="server" style="z-index: 1; left: 130px; top: 205px; position: absolute" width="128px"></asp:TextBox>
         </p>
         <p>
             &nbsp;<asp:CheckBox ID="chkShippingStatus" runat="server" style="z-index: 1; left: 51px; top: 235px; position: absolute" Text="Shipping Status" />
@@ -46,7 +41,7 @@
         <p>
             &nbsp;</p>
         <p>
-            <asp:Label ID="lblStaffId" runat="server" style="z-index: 1; left: 8px; top: 121px; position: absolute" Text="Staff ID"></asp:Label>
+            <asp:Label ID="lblStaffId" runat="server" style="z-index: 1; left: 6px; top: 121px; position: absolute" Text="Staff ID"></asp:Label>
         </p>
         <p>
             <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" style="z-index: 1; left: 119px; top: 324px; position: absolute" Text="Cancel" />

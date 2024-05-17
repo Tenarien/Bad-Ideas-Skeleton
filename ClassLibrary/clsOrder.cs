@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -133,12 +134,16 @@ namespace ClassLibrary
 
         }
 
-        public string Valid(string customerId, string staffId, string orderDate, decimal totalPrice, string shippingAddress)
+        public string Valid(string customerId, string staffId, string orderDate, string totalPrice, string shippingAddress)
         {
             //create a string variable to store the error 
             String Error = "";
             //create a temporary variable to store the date values 
-            DateTime DateTemp; 
+            DateTime DateTemp;
+            Decimal PriceTemp;
+            int CustomerTemp;
+            int StaffTemp; 
+
 
             //if the ShippingAddress is blank 
             if (shippingAddress.Length == 0)
@@ -150,7 +155,7 @@ namespace ClassLibrary
             if (shippingAddress.Length > 50)
             {
                 //record the error 
-                Error = Error + "The Shiiping Address must be less than 50 characters : ";
+                Error = Error + "The Shipping Address must be less than 50 characters : ";
             }
             
             //create an instance of DateTime to compare with DateTemp
@@ -180,9 +185,48 @@ namespace ClassLibrary
                 Error = Error + "The date was not a valid date : ";
             }
 
-           
-                //return any error messages 
-                return Error;
+            try
+            {
+                PriceTemp = Convert.ToDecimal(totalPrice);
+                if (PriceTemp < 0.00m)
+                {
+                    Error = Error + "The price cannot be negative : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The price was not a valid price";
+            }
+
+            try
+            {
+                CustomerTemp = Convert.ToInt32(CustomerId);
+                if (CustomerTemp < 0.00m)
+                {
+                    Error = Error + "The CustomerId cannot be negative : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The CustomerId was not a valid number";
+            }
+
+            try
+            {
+                CustomerTemp = Convert.ToInt32(CustomerId);
+                if (CustomerTemp < 0.00m)
+                {
+                    Error = Error + "The CustomerId cannot be negative : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The CustomerId was not a valid number";
+            }
+
+
+            //return any error messages 
+            return Error;
         }
     }
             
