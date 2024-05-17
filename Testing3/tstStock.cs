@@ -560,5 +560,113 @@ namespace Testing3
             Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
             Assert.AreNotEqual(Error, "");
         }
+
+        [TestMethod]
+        public void QuantityExtremeMin()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Int32 TestQuantity = -100;
+            string Quantity = TestQuantity.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void QuantityMinLessOne()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Int32 TestQuantity = -1;
+            string Quantity = TestQuantity.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void QuantityMin()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Int32 TestQuantity = 0;
+            string Quantity = TestQuantity.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void QuantityMinPlusOne()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Int32 TestQuantity = 1;
+            string Quantity = TestQuantity.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void QuantityInvalidData()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            string Quantity = "This is not a number";
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SupplierIdExtremeMin()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Int32 TestSupplierId = -100;
+            string SupplierId = TestSupplierId.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SupplierIdMinlessOne()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Int32 TestSupplierId = 0;
+            string SupplierId = TestSupplierId.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SupplierIdMin()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Int32 TestSupplierId = 1;
+            string SupplierId = TestSupplierId.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SupplierIdMinPlusOne()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            Int32 TestSupplierId = 2;
+            string SupplierId = TestSupplierId.ToString();
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SupplierIdInvalidData()
+        {
+            clsStock aBook = new clsStock();
+            String Error = "";
+            string SupplierId = "This is not a number";
+            Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }
