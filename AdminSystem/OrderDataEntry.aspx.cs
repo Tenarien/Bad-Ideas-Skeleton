@@ -20,33 +20,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsOrder AnOrder = new clsOrder();
-        AnOrder.OrderId = Convert.ToInt32(txtOrderId.Text);
-        Session["AnOrder"] = AnOrder; 
-        Response.Redirect("OrderViewer.aspx");
-    
-        AnOrder.CustomerId = Convert.ToInt32(txtCustomerId.Text);
-        Session["AnOrder"] = AnOrder;
-        Response.Redirect("OrderViewer.aspx");
-
-        AnOrder.StaffId = Convert.ToInt32(txtStaffId.Text);
-        Session["AnOrder"] = AnOrder;
-        Response.Redirect("OrderViewer.aspx");
-
-        AnOrder.OrderDate = Convert.ToDateTime(DateTime.Now);
-        Session["AnOrder"] = AnOrder;
-        Response.Redirect("OrderViewer.aspx");
-
-        AnOrder.TotalPrice = Convert.ToInt32(txtTotalPrice.Text);
-        Session["AnOrder"] = AnOrder;
-        Response.Redirect("OrderViewer.aspx");
-
-        AnOrder.ShippingAddress = txtShippingAddress.Text;
-        Session["AnOrder"] = AnOrder;
-        Response.Redirect("OrderViewer.aspx");
-
-        AnOrder.ShippingStatus = chkShippingStatus.Checked;
-        Session["AnOrder"] = AnOrder;
-        Response.Redirect("OrderViewer.aspx");
+        string CustomerId = txtCustomerId.Text;
+        string StaffId = txtStaffId.Text;
+        string OrderDate = txtOrderDate.Text;
+        string TotalPrice = txtTotalPrice.Text;
+        string ShippingAddress = txtShippingAddress.Text;
+        string ShippingStatus = chkShippingStatus.Text;
+        string Error = "";
+        Error = AnOrder.Valid(CustomerId, StaffId, OrderDate, TotalPrice, ShippingAddress);
+        if (Error == "")
+        {
+            AnOrder.CustomerId = Convert.ToInt32(txtCustomerId.Text);
+            AnOrder.StaffId = Convert.ToInt32(txtStaffId.Text);
+            AnOrder.OrderDate = Convert.ToDateTime(DateTime.Now);
+            AnOrder.TotalPrice = Convert.ToInt32(txtTotalPrice.Text);
+            AnOrder.ShippingAddress = txtShippingAddress.Text;
+            AnOrder.ShippingStatus = chkShippingStatus.Checked;
+            Session["AnOrder"] = AnOrder;
+            Response.Redirect("OrderViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error; 
+        }
 
 
     }
