@@ -535,6 +535,22 @@ namespace Testing2
         }
 
         [TestMethod]
+        public void CustomerIdExtremeMin()
+        {
+            //create an instance of the class we want to create 
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            int TestCustomer = -1000000;
+            string CustomerId = TestCustomer.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(CustomerId, StaffId, OrderDate, TotalPrice, ShippingAddress);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
         public void CustomerIdMinLessOne()
         {
             //create an instance of the class we want to create 
@@ -598,6 +614,22 @@ namespace Testing2
         }
 
         [TestMethod]
+        public void StaffIdExtremeMin()
+        {
+            //create an instance of the class we want to create 
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            int TestStaff = -1000000;
+            string CustomerId = TestStaff.ToString();
+            //invoke the method
+            Error = AnOrder.Valid(CustomerId, StaffId, OrderDate, TotalPrice, ShippingAddress);
+            //test to see that the result is correct 
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
         public void StaffIdMinLessOne()
         {
             //create an instance of the class we want to create 
@@ -657,6 +689,9 @@ namespace Testing2
             //test to see that the result is correct 
             Assert.AreEqual(Error, "");
         }
+
+       
+
     }
 }
 
