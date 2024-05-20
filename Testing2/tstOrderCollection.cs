@@ -1,0 +1,110 @@
+﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Testing2
+{
+    [TestClass]
+    public class tstOrderCollection
+    {
+        [TestMethod]
+        public void InstanceOk()
+        {
+            //craete an instance of the class we want to craete 
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            //test to see that is exits 
+            Assert.IsNotNull(AllOrder);
+        }
+
+        [TestMethod]
+        public void OrderListOK()
+        {
+            //craete an instance of the class we want to craete 
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            //create some test data to assign to the property
+            //in this case the data needs to be a list of objects 
+            List<clsOrder> TestList = new List<clsOrder>();
+            //add an item to the list
+            //create the item of the test data 
+            clsOrder TestItem = new clsOrder();
+            //set its properties 
+            TestItem.ShippingStatus = true;
+            TestItem.OrderId = 1;
+            TestItem.CustomerId = 1;
+            TestItem.StaffId = 1;
+            TestItem.TotalPrice = 6.50m;
+            TestItem.ShippingAddress = "123 Maple Street London W1A 1AA United Kingdom";
+            //add the item to the test list
+            AllOrder.OrderList = TestList;
+            //test to see that the two values are the same 
+            Assert.AreEqual(AllOrder.OrderList, TestList);
+
+
+        }
+
+        
+
+        [TestMethod]
+        public void ThisOrderPropertyOk()
+        {
+            // create an instance of the class we want to craete
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            //create some test data to assign to the property 
+            clsOrder TestOrder = new clsOrder();
+            //set the properties of the test object
+            TestOrder.ShippingStatus = true;
+            TestOrder.OrderId = 1;
+            TestOrder.CustomerId = 1;
+            TestOrder.StaffId = 1;
+            TestOrder.TotalPrice = 6.50m;
+            TestOrder.ShippingAddress = "123 Maple Street London W1A 1AA United Kingdom";
+            //assign the data to the property 
+            AllOrder.ThisOrder = TestOrder;
+            //test to see that the two values are the same 
+            Assert.AreEqual(AllOrder.ThisOrder, TestOrder);
+        }
+
+        [TestMethod]
+        public void listAndCountOK()
+        {
+            // create an instance of the class we want to craete
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            //create some test data to assign to the property 
+            //in this case the data needs to be a list of objects
+            List<clsOrder> TestList = new List<clsOrder>();
+            //add an item to the lsit 
+            //create the item of the test data
+            clsOrder TestItem = new clsOrder();
+            //set its properties 
+            TestItem.ShippingStatus = true;
+            TestItem.OrderId = 1;
+            TestItem.CustomerId = 1;
+            TestItem.StaffId = 1;
+            TestItem.TotalPrice = 6.50m;
+            TestItem.ShippingAddress = "123 Maple Street London W1A 1AA United Kingdom";
+            //add the item to the test list
+            TestList.Add(TestItem);
+            //assign the data to the property 
+            AllOrder.OrderList = TestList;
+            //test to see that the two values are the same 
+            Assert.AreEqual(AllOrder.Count, TestList.Count);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}

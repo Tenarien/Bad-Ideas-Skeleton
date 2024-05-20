@@ -213,15 +213,15 @@ namespace ClassLibrary
 
             try
             {
-                CustomerTemp = Convert.ToInt32(CustomerId);
-                if (CustomerTemp < 0.00m)
+                    StaffTemp = Convert.ToInt32(StaffId);
+                if (StaffTemp < 0.00m)
                 {
-                    Error = Error + "The CustomerId cannot be negative : ";
+                    Error = Error + "The StaffId cannot be negative : ";
                 }
             }
             catch
             {
-                Error = Error + "The CustomerId was not a valid number";
+                Error = Error + "The StaffId was not a valid number";
             }
 
 
