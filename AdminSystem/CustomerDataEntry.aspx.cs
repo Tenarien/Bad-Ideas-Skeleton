@@ -86,10 +86,16 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnCustomer.CustomerAddress = CustomerAddress;
             //capture account creation date
             AnCustomer.AccountCreationDate = Convert.ToDateTime(AccountCreationDate);
-            //store the customer in the session object
-            Session["AnCustomer"] = AnCustomer;
-            //navigate to the view page
-            Response.Redirect("CustomerViewer.aspx");
+            //capture account verification
+            AnCustomer.AccountVerification = chkAccountVerification.Checked;
+            //create a new instance of the customer collection
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+            //set thisCusomer property
+            CustomerList.ThisCustomer = AnCustomer;
+            //add the new record
+            CustomerList.Add();
+            //redirect back to the list page
+            Response.Redirect("CustomerList.aspx");
         }
 
         else
