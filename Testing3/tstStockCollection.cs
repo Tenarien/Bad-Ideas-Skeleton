@@ -66,5 +66,25 @@ namespace Testing3
             AllBooks.StockList = TestList;
             Assert.AreEqual(AllBooks.Count, TestList.Count);
         }
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsStockCollection AllBooks = new clsStockCollection();
+            clsStock TestBook = new clsStock();
+            Int32 PrimaryKey = 0;
+            TestBook.Available = true;
+            TestBook.BookId = 1;
+            TestBook.Title = "TestBook";
+            TestBook.Price = 1.00m;
+            TestBook.Quantity = 100;
+            TestBook.SupplierId = 1;
+            TestBook.DateAdded = DateTime.Now;
+            AllBooks.ThisBook = TestBook;
+            PrimaryKey = AllBooks.Add();
+            TestBook.BookId = PrimaryKey;
+            AllBooks.ThisBook.Find(PrimaryKey);
+            Assert.AreEqual(AllBooks.ThisBook, TestBook);
+        }
     }
 }
