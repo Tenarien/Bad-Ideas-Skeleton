@@ -47,7 +47,7 @@ namespace Testing2
 
         }
 
-        
+
 
         [TestMethod]
         public void ThisOrderPropertyOk()
@@ -115,7 +115,7 @@ namespace Testing2
             TestItem.StaffId = 1;
             TestItem.TotalPrice = 6.50m;
             TestItem.ShippingAddress = "123 Maple Street London W1A 1AA United Kingdom";
-            TestItem.OrderDate = DateTime.Now;  
+            TestItem.OrderDate = DateTime.Now;
             //set ThisOrder to the test data
             AllOrder.ThisOrder = TestItem;
             //Add the record 
@@ -129,13 +129,52 @@ namespace Testing2
 
         }
 
+        [TestMethod]
+        public void UpdateMehodOK()
+        {
+            // create an instance of the class we want to craete
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            //create the item of the test data
+            clsOrder TestItem = new clsOrder();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties 
+            TestItem.ShippingStatus = true;
+            TestItem.CustomerId = 1;
+            TestItem.StaffId = 1;
+            TestItem.TotalPrice = 6.50m;
+            TestItem.ShippingAddress = "123 Maple Street London W1A 1AA United Kingdom";
+            TestItem.OrderDate = DateTime.Now;
+            //set ThisOrder to the test data
+            AllOrder.ThisOrder = TestItem;
+            //Add the record 
+            PrimaryKey = AllOrder.Add();
+            //set the primary key of the test data
+            TestItem.OrderId = PrimaryKey;
+            //modify the test record 
+            TestItem.ShippingStatus = false;
+            TestItem.CustomerId = 1;
+            TestItem.StaffId = 1;
+            TestItem.TotalPrice = 6.50m;
+            TestItem.ShippingAddress = "123 Maple Street London W1A 1AA United Kingdom";
+            TestItem.OrderDate = DateTime.Now;
+            //set the record based on the new test data 
+            AllOrder.ThisOrder = TestItem;
+            //update the record 
+            AllOrder.Update();
+            //find the record 
+            AllOrder.ThisOrder.Find(PrimaryKey);
+            //test to see that the two values are the same 
+            Assert.AreEqual(AllOrder.ThisOrder, TestItem);
 
-
-
-
-
-
-
-
+        }
     }
+
+
+
+
+
 }
+
+
+
