@@ -32,8 +32,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
             aStaff.StaffAddress = StaffAddress;
             aStaff.StaffDate = Convert.ToDateTime(StaffDate);
             aStaff.StaffRole = StaffRole;
-            Session["aStaff"] = aStaff;
-            Response.Redirect("StaffViewer.aspx");
+            aStaff.StaffPrivilage = chkPrivilage.Checked;
+
+            clsStaffCollection StaffList = new clsStaffCollection();
+            StaffList.ThisStaff = aStaff;
+            StaffList.Add();
+            Response.Redirect("StaffList.aspx");
         }
         else
         {

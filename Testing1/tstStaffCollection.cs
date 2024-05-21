@@ -58,9 +58,7 @@ namespace Testing1
         public void ListAndCountOK()
         {
             clsStaffCollection AllStaff = new clsStaffCollection();
-
             List<clsStaff> TestList = new List<clsStaff>();
-
             clsStaff TestItem = new clsStaff();
 
             TestItem.StaffId = 1;
@@ -68,11 +66,36 @@ namespace Testing1
             TestItem.StaffAddress = "12 Test Street";
             TestItem.StaffDate = DateTime.Now;
             TestItem.StaffPrivilage = true;
+            TestItem.StaffRole = "Staff";
 
             TestList.Add(TestItem);
             AllStaff.StaffList = TestList;
 
             Assert.AreEqual(AllStaff.Count, TestList.Count);
+        }
+
+        [TestMethod]
+        public void AddMethodOk()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaff TestItem = new clsStaff();
+
+            Int32 PrimaryKey = 0;
+
+            TestItem.StaffId = 1;
+            TestItem.StaffName = "John Doe";
+            TestItem.StaffAddress = "12 Test Street";
+            TestItem.StaffDate = DateTime.Now;
+            TestItem.StaffPrivilage = true;
+            TestItem.StaffRole = "Staff";
+
+            AllStaff.ThisStaff = TestItem;
+            PrimaryKey = AllStaff.Add();
+
+            TestItem.StaffId = PrimaryKey;
+            AllStaff.ThisStaff.Find(PrimaryKey);
+
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
         }
     }
 }
