@@ -34,16 +34,7 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void CountPropertyOK()
-        {
-            clsStockCollection AllBooks = new clsStockCollection();
-            Int32 SomeCount = 0;
-            AllBooks.Count = SomeCount;
-            Assert.AreEqual(AllBooks.Count, SomeCount);
-        }
-
-        [TestMethod]
-        public void ThisbookpropertyOK()
+        public void ThisBookPropertyOK()
         {
             clsStockCollection AllBooks = new clsStockCollection();
             clsStock TestBook = new clsStock();
@@ -56,6 +47,24 @@ namespace Testing3
             TestBook.DateAdded = DateTime.Now;
             AllBooks.ThisBook = TestBook;
             Assert.AreEqual(AllBooks.ThisBook, TestBook);
+        }
+
+        [TestMethod]
+        public void ListAndCountOK()
+        {
+            clsStockCollection AllBooks = new clsStockCollection();
+            List<clsStock> TestList = new List<clsStock>();
+            clsStock TestBook = new clsStock();
+            TestBook.Available = true;
+            TestBook.BookId = 1;
+            TestBook.Title = "TestBook";
+            TestBook.Price = 1.00m;
+            TestBook.Quantity = 100;
+            TestBook.SupplierId = 1;
+            TestBook.DateAdded = DateTime.Now;
+            TestList.Add(TestBook);
+            AllBooks.StockList = TestList;
+            Assert.AreEqual(AllBooks.Count, TestList.Count);
         }
     }
 }
