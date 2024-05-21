@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 
 namespace ClassLibrary
 {
     public class clsOrderCollection
     {
+        //private data member for the list
+        List<clsOrder> mOrderList = new List<clsOrder>();
+        //privat member data for thisOrder
+        clsOrder mThisOrder = new clsOrder();
+
 
         public List<clsOrder> OrderList
         {
@@ -34,10 +40,20 @@ namespace ClassLibrary
             }
         }
 
-        public clsOrder ThisOrder { get; set; }
+        public clsOrder ThisOrder
+        {
+            get
+            {
+                //return the private data
+                return mThisOrder;
+            }
+            set
+            {
+                //set the private data
+                mThisOrder = value;
+            }
+        }
 
-        //private data member for the list
-        List<clsOrder> mOrderList = new List<clsOrder>();   
 
 
         public clsOrderCollection()
@@ -72,11 +88,23 @@ namespace ClassLibrary
             }
 
 
-            
-
-
-            
         }
 
+        public int Add()
+        {
+            //adds a record to the database based on the values of mThisOrder
+            //connect to the daabase 
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure 
+            DB.AddParameter("@CustomerId", mThisOrder.CustomerId);
+            DB.AddParameter("@StaffId", mThisOrder.StaffId);
+            DB.AddParameter("@ShippingAddress", mThisOrder.ShippingAddress);
+            DB.AddParameter("@TotalPrice", mThisOrder.TotalPrice);
+            DB.AddParameter("@ShippingStatus", mThisOrder.ShippingStatus);
+            DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
+
+            //execture the query returning the primary key value 
+            return DB.Execute("sproc_tblOrder_Insert");
+        }
     }
 }

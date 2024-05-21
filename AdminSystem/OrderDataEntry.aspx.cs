@@ -30,14 +30,21 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnOrder.Valid(CustomerId, StaffId, OrderDate, TotalPrice, ShippingAddress);
         if (Error == "")
         {
-            AnOrder.CustomerId = Convert.ToInt32(txtCustomerId.Text);
-            AnOrder.StaffId = Convert.ToInt32(txtStaffId.Text);
-            AnOrder.OrderDate = Convert.ToDateTime(DateTime.Now);
-            AnOrder.TotalPrice = Convert.ToInt32(txtTotalPrice.Text);
+            AnOrder.CustomerId = Convert.ToInt32(CustomerId);
+            AnOrder.StaffId = Convert.ToInt32(StaffId);
+            AnOrder.OrderDate = Convert.ToDateTime(OrderDate);
+            AnOrder.TotalPrice = Convert.ToInt32(TotalPrice);
             AnOrder.ShippingAddress = txtShippingAddress.Text;
             AnOrder.ShippingStatus = chkShippingStatus.Checked;
-            Session["AnOrder"] = AnOrder;
-            Response.Redirect("OrderViewer.aspx");
+            //create an instance of the order collection 
+            clsOrderCollection OrderList = new clsOrderCollection();    
+            //set theThisOrder property 
+            OrderList.ThisOrder = AnOrder;
+            //add the new record 
+            OrderList.Add();
+            //redirect back to the list page 
+            Response.Redirect("OrderList.aspx");
+
         }
         else
         {
