@@ -8,6 +8,8 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    public int CustomerId { get; private set; }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -76,6 +78,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
         if (Error == "")
         {
+            //capture customer id
+            AnCustomer.CustomerId = CustomerId;
             //capture customer fist name
             AnCustomer.CustomerFirstName = CustomerFirstName;
             //capture customer surname
@@ -129,4 +133,25 @@ public partial class _1_DataEntry : System.Web.UI.Page
             chkAccountVerification.Checked = AnCustomer.AccountVerification;
         }
     }
+
+
+    void DisplayCustomer()
+    {
+        //create an instance of the class we want to create
+        clsCustomerCollection Customer = new clsCustomerCollection();
+        //find the record to update
+        Customer.ThisCustomer.Find(CustomerId);
+        //display the data for the record
+        txtCustomerId.Text = Customer.ThisCustomer.CustomerId.ToString();
+        txtCustomerFirstName.Text = Customer.ThisCustomer.CustomerFirstName.ToString();
+        txtCustomerSurname.Text = Customer.ThisCustomer.CustomerSurname.ToString();
+        txtCustomerEmail.Text = Customer.ThisCustomer.CustomerEmail.ToString();
+        txtCustomerAddress.Text = Customer.ThisCustomer.CustomerAddress.ToString();
+        txtCustomerAccountCreationDate.Text = Customer.ThisCustomer.AccountCreationDate.ToString();
+        chkAccountVerification.Checked = Customer.ThisCustomer.AccountVerification;
+
+    }
+
+
+
 }
