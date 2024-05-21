@@ -6,6 +6,7 @@ namespace ClassLibrary
     public class clsStockCollection
     {
         List<clsStock> mStockList = new List<clsStock>();
+        clsStock mThisBook = new clsStock();
 
         public clsStockCollection()
         {
@@ -23,7 +24,7 @@ namespace ClassLibrary
                 aBook.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
                 aBook.Price = Convert.ToDecimal(DB.DataTable.Rows[Index]["Price"]);
                 aBook.Quantity = Convert.ToInt32(DB.DataTable.Rows[Index]["Quantity"]);
-                aBook.SupplierId = Convert.ToInt32(DB.DataTable.Rows[Index]["supplierId"]);
+                aBook.SupplierId = Convert.ToInt32(DB.DataTable.Rows[Index]["SupplierId"]);
                 mStockList.Add(aBook);
                 Index++;
             }
@@ -51,6 +52,28 @@ namespace ClassLibrary
                 
             }
         }
-        public clsStock ThisBook { get; set; }
+        public clsStock ThisBook 
+        {
+            get
+            {
+                return mThisBook;
+            }
+            set
+            {
+                mThisBook = value;
+            }
+        }
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Title", mThisBook.Title);
+            DB.AddParameter("@Available", mThisBook.Available);
+            DB.AddParameter("@DateAdded", mThisBook.DateAdded);
+            DB.AddParameter("@Price", mThisBook.Price);
+            DB.AddParameter("@Quantity", mThisBook.Quantity);
+            DB.AddParameter("@SupplierId", mThisBook.SupplierId);
+
+            return DB.Execute("sproc_tblStock_Insert");
+        }
     }
 }
