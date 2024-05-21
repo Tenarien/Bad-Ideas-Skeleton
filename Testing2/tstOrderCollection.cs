@@ -38,6 +38,7 @@ namespace Testing2
             TestItem.StaffId = 1;
             TestItem.TotalPrice = 6.50m;
             TestItem.ShippingAddress = "123 Maple Street London W1A 1AA United Kingdom";
+            TestItem.OrderDate = DateTime.Now;
             //add the item to the test list
             AllOrder.OrderList = TestList;
             //test to see that the two values are the same 
@@ -62,6 +63,7 @@ namespace Testing2
             TestOrder.StaffId = 1;
             TestOrder.TotalPrice = 6.50m;
             TestOrder.ShippingAddress = "123 Maple Street London W1A 1AA United Kingdom";
+            TestOrder.OrderDate = DateTime.Now;
             //assign the data to the property 
             AllOrder.ThisOrder = TestOrder;
             //test to see that the two values are the same 
@@ -86,6 +88,7 @@ namespace Testing2
             TestItem.StaffId = 1;
             TestItem.TotalPrice = 6.50m;
             TestItem.ShippingAddress = "123 Maple Street London W1A 1AA United Kingdom";
+            TestItem.OrderDate = DateTime.Now;
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property 
@@ -96,7 +99,35 @@ namespace Testing2
         }
 
 
+        [TestMethod]
+        public void AddMehodOK()
+        {
+            // create an instance of the class we want to craete
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            //create the item of the test data
+            clsOrder TestItem = new clsOrder();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties 
+            TestItem.ShippingStatus = true;
+            TestItem.OrderId = 1;
+            TestItem.CustomerId = 1;
+            TestItem.StaffId = 1;
+            TestItem.TotalPrice = 6.50m;
+            TestItem.ShippingAddress = "123 Maple Street London W1A 1AA United Kingdom";
+            TestItem.OrderDate = DateTime.Now;  
+            //set ThisOrder to the test data
+            AllOrder.ThisOrder = TestItem;
+            //Add the record 
+            PrimaryKey = AllOrder.Add();
+            //set the primary key of the test data
+            TestItem.OrderId = PrimaryKey;
+            //find the record
+            AllOrder.ThisOrder.Find(PrimaryKey);
+            //test to see that the two values are the same 
+            Assert.AreEqual(AllOrder.ThisOrder, TestItem);
 
+        }
 
 
 
