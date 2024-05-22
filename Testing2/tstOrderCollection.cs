@@ -201,23 +201,65 @@ namespace Testing2
             Assert.IsFalse(Found);
 
         }
+        [TestMethod]
+        public void ReportByShippingAddressMethodOK()
+        {
+            // create an instance of the class we want to craete
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            //ceate an instance of the filtered data
+            clsOrderCollection FilteredOrdered = new clsOrderCollection();
+            //apply a blank string (should return all records 
+            FilteredOrdered.ReportByShippingAddress("");
+            //test to see that the two values are the same 
+            Assert.AreEqual(AllOrder.Count, FilteredOrdered.Count);
+        }
 
+        [TestMethod]
+        public void ReportByShippingAddressNoneFound()
+        {
+            // create an instance of the class we want to craete
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            //ceate an instance of the filtered data
+            clsOrderCollection FilteredOrdered = new clsOrderCollection();
+            //apply a shippng address that doesnt exist 
+            FilteredOrdered.ReportByShippingAddress("xxxxxx");
+            //tset to see that there are no records 
+            Assert.AreEqual(0, FilteredOrdered.Count);
+        }
 
+        [TestMethod]
+        public void ReportByShippingAddressTestDataFound()
+        {
+           
+            //ceate an instance of the filtered data
+            clsOrderCollection FilteredOrdered = new clsOrderCollection();
+            //variable to store the outcome
+            Boolean OK = true;
+            //apply a shipping address that doesnt exist
+            FilteredOrdered.ReportByShippingAddress("yyy yyy");
+            //check that the correct number of records are found 
+            if (FilteredOrdered.Count == 2)
+            {
+                //check to see that the first record is 24
+                if (FilteredOrdered.OrderList[0].OrderId != 24)
+                {
+                    OK = false;
+                }
+                //check to see that the first record is 26
+                if (FilteredOrdered.OrderList[1].OrderId != 26)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records  
 
-
-
-
-
-
+            Assert.IsTrue(OK);
+        }
     }
-
-
-
-
-
-
-
-
 }
 
 
