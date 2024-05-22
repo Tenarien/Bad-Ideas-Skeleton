@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" style="z-index: 1; left: 86px; top: 316px; position: absolute" Text="Edit" />
+            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 155px; top: 316px; position: absolute" Text="Delete" />
             <asp:ListBox ID="lstOrderList" runat="server" style="z-index: 1; left: 8px; top: 92px; position: absolute; height: 187px; width: 336px"></asp:ListBox>
             <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" style="z-index: 1; left: 17px; top: 316px; position: absolute" Text="Add" />
         </div>
