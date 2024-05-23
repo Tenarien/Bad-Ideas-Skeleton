@@ -52,7 +52,7 @@ public partial class _1_List : System.Web.UI.Page
             //get primary key value
             CustomerId = Convert.ToInt32(lstCustomerList.SelectedValue);
             //store data in session object
-            Session[CustomerId] = CustomerId;
+            Session["CustomerId"] = CustomerId;
             //redirect to edit page
             Response.Redirect("CustomerDataEntry.aspx");
         }
@@ -61,5 +61,61 @@ public partial class _1_List : System.Web.UI.Page
         {
             lblError.Text = "Please select a record from the list to edit";
         }
+    }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        //variable to store the promary key value
+        Int32 CustomerId;
+        //if a record has een selected from the list
+        if (lstCustomerList.SelectedIndex != -1)
+        {
+            //get primary key value
+            CustomerId = Convert.ToInt32(lstCustomerList.SelectedValue);
+            //store data in session object
+            Session["CustomerId"] = CustomerId;
+            //redirect to delete page
+            Response.Redirect("CustomerConfirmDelete.aspx");
+        }
+        //if no record has been selected
+        else
+        {
+            //display an error message
+            lblError.Text = "Please delect a record from the list to delete";
+        }
+    }
+
+    protected void btnApplyFilter_Click(object sender, EventArgs e)
+    {
+        //create an instance of the class we want to create
+        clsCustomerCollection AnCustomer = new clsCustomerCollection();
+        //retrieve the value of email from presentation layer
+        AnCustomer.ReportByEmail(txtFilter.Text);
+        //set the datasource
+        lstCustomerList.DataSource = AnCustomer.CustomerList;
+        //set name of primary key
+        lstCustomerList.DataValueField = "CustomerId";
+        //set name of field to display
+        lstCustomerList.DataTextField = "Email";
+        //bind the data to list
+        lstCustomerList.DataBind();
+    }
+
+    protected void btnClearFilter_Click(object sender, EventArgs e)
+    {
+        //create an instance of the class we want to create
+        clsCustomerCollection AnCustomer = new clsCustomerCollection();
+        //set an empty string
+        AnCustomer.ReportByEmail("");
+        //clear any existing filter
+        txtFilter.Text = "";
+        //set the data source to the lst of customers in collections
+        lstCustomerList.DataSource = AnCustomer.CustomerList;
+        //set the name of primary key
+        lstCustomerList.DataValueField = "CustomerId";
+        //set name of field to display
+        lstCustomerList.DataTextField = "Email";
+        //bind the data to list
+        lstCustomerList.DataBind();
     }
 }
