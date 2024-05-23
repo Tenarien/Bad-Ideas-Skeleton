@@ -117,6 +117,7 @@ namespace ClassLibrary
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the paramaters for the stored procedure
+            DB.AddParameter("@CustomerId", mThisCustomer.CustomerId);
             DB.AddParameter("@CustomerFirstName", mThisCustomer.CustomerFirstName);
             DB.AddParameter("@CustomerSurname", mThisCustomer.CustomerSurname);
             DB.AddParameter("@CustomerEmail", mThisCustomer.CustomerEmail);
