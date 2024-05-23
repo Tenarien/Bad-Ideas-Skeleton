@@ -167,8 +167,97 @@ namespace Testing4
         }
 
 
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.AccountVerification = true;
+            TestItem.CustomerId = 2;
+            TestItem.CustomerFirstName = "a";
+            TestItem.CustomerSurname = "a";
+            TestItem.CustomerEmail = "a@dmu.ac.uk";
+            TestItem.CustomerAddress = "125 abc road";
+            TestItem.AccountCreationDate = DateTime.Now;
+            //set ThisAddress to the test data
+            AllCustomers.ThisCustomer = TestItem;
+            // add the record
+            PrimaryKey = AllCustomers.Add();
+            //set the primary of the test data
+            TestItem.CustomerId = PrimaryKey;
+            //find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //delete the record
+            AllCustomers.Delete();
+            //now find the record
+            Boolean Found = AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
 
 
+        [TestMethod]
+
+        public void ReportByCustomerEmailMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create an istance of the filtered data
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            //apply a blank string (should return all)
+            FilteredCustomers.ReportByEmail("");
+            //test to see that the 2 values are the same
+            Assert.AreEqual(AllCustomers.Count, FilteredCustomers.Count);
+        }
+
+
+        [TestMethod]
+        public void ReportByCustomerEmailNoneFound()
+        {
+            //create an istance of the filtered data
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            //apply a email that doesnt exist
+            FilteredCustomers.ReportByEmail("a@gmail.com");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredCustomers.Count);
+        }
+
+
+        [TestMethod]
+        public void ReportByCustomerEmailDataFound()
+        {
+            //create an istance of the filtered data
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            //variable to store the outcome
+            Boolean OK = true;
+            //apply a email that doesnt exist
+            FilteredCustomers.ReportByEmail("a@gmail.com");
+            //check to see that the corect number of records are found
+            if (FilteredCustomers.Count == 2)
+            {
+                //checl to see that the first record is 20
+                if (FilteredCustomers.CustomerList[0].CustomerId != 69)
+                {
+                    OK = false;
+                }
+                //check to see that the first record is 21
+                if (FilteredCustomers.CustomerList[1].CustomerId != 72)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+        }
 
 
 
