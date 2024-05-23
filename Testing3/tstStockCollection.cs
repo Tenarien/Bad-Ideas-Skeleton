@@ -86,5 +86,38 @@ namespace Testing3
             AllBooks.ThisBook.Find(PrimaryKey);
             Assert.AreEqual(AllBooks.ThisBook, TestBook);
         }
+
+        [TestMethod]
+        public void UpdatemethodOK()
+        {
+            clsStockCollection AllBooks = new clsStockCollection();
+            clsStock TestBook = new clsStock();
+            Int32 PrimaryKey = 0;
+
+            TestBook.Available = true;
+            TestBook.BookId = 1;
+            TestBook.Title = "TestBook";
+            TestBook.Price = 1.00m;
+            TestBook.Quantity = 100;
+            TestBook.SupplierId = 1;
+            TestBook.DateAdded = DateTime.Now;
+
+            AllBooks.ThisBook = TestBook;
+            PrimaryKey = AllBooks.Add();
+            TestBook.BookId = PrimaryKey;
+
+            TestBook.Available = false;
+            TestBook.BookId = 3;
+            TestBook.Title = "TestBook2: Electric Boogaloo";
+            TestBook.Price = 5.00m;
+            TestBook.Quantity = 50;
+            TestBook.SupplierId = 4;
+            TestBook.DateAdded = DateTime.Now;
+
+            AllBooks.ThisBook = TestBook;
+            AllBooks.Update();
+            AllBooks.ThisBook.Find(PrimaryKey);
+            Assert.AreEqual (AllBooks.ThisBook, TestBook);
+        }
     }
 }
