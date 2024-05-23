@@ -97,5 +97,113 @@ namespace Testing1
 
             Assert.AreEqual(AllStaff.ThisStaff, TestItem);
         }
+
+        [TestMethod] 
+        public void UpdateMethodOK() 
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaff TestItem = new clsStaff();
+
+            Int32 PrimaryKey = 0;
+
+            TestItem.StaffName = "John Doe";
+            TestItem.StaffAddress = "12 Test Street";
+            TestItem.StaffDate = DateTime.Now;
+            TestItem.StaffPrivilage = true;
+            TestItem.StaffRole = "Staff";
+
+            AllStaff.ThisStaff = TestItem;
+            PrimaryKey = AllStaff.Add();
+
+            TestItem.StaffId = PrimaryKey;
+
+            TestItem.StaffName = "Johnny Moe";
+            TestItem.StaffAddress = "33 Tested Street";
+            TestItem.StaffDate = DateTime.Now;
+            TestItem.StaffPrivilage = false;
+            TestItem.StaffRole = "NotStaff";
+
+            AllStaff.ThisStaff = TestItem;
+            AllStaff.Update();
+            
+            AllStaff.ThisStaff.Find(PrimaryKey);
+
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaff TestItem = new clsStaff();
+
+            Int32 PrimaryKey = 0;
+
+            TestItem.StaffId = 1;
+            TestItem.StaffName = "John Doe";
+            TestItem.StaffAddress = "12 Test Street";
+            TestItem.StaffDate = DateTime.Now;
+            TestItem.StaffPrivilage = true;
+            TestItem.StaffRole = "Staff";
+
+            AllStaff.ThisStaff = TestItem;
+            PrimaryKey = AllStaff.Add();
+
+            TestItem.StaffId = PrimaryKey;
+            AllStaff.ThisStaff.Find(PrimaryKey);
+
+            AllStaff.Delete();
+
+            Boolean Found = AllStaff.ThisStaff.Find(PrimaryKey);
+
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void ReportByNameMethodOK()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+
+            FilteredStaff.ReportByName("");
+
+            Assert.AreEqual(AllStaff.Count, FilteredStaff.Count);
+        }
+
+        [TestMethod]
+        public void ReportByNameNoneFound()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+
+            FilteredStaff.ReportByName("xxxx");
+
+            Assert.AreEqual(0, FilteredStaff.Count);
+        }
+
+        [TestMethod]
+        public void ReportByNameTestDataFound()
+        {
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            Boolean OK = true;
+
+            FilteredStaff.ReportByName("xxxx");
+            if (FilteredStaff.Count == 2)
+            {
+                if (FilteredStaff.StaffList[0].StaffId != 25)
+                {
+                    OK = false;
+                }
+                if (FilteredStaff.StaffList[1].StaffId != 26)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 }

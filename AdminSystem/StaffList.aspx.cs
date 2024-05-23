@@ -31,4 +31,65 @@ public partial class _1_List : System.Web.UI.Page
 
         Response.Redirect("StaffDataEntry.aspx");
     }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Int32 StaffId;
+
+        if(lstStaffList.SelectedIndex != -1)
+        {
+            StaffId = Convert.ToInt32(lstStaffList.SelectedValue);
+            Session["StaffId"] = StaffId;
+
+            Response.Redirect("StaffDataEntry.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a record from the list to edit";
+        }
+    }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        Int32 StaffId;
+        if (lstStaffList.SelectedIndex != -1)
+        {
+            StaffId = Convert.ToInt32(lstStaffList.SelectedValue);
+            Session["Staffid"] = StaffId;
+
+            Response.Redirect("StaffConfirmDelete.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a record from the list to delete";
+        }
+    }
+
+    protected void btnApplyFilter_Click(object sender, EventArgs e)
+    {
+        clsStaffCollection aStaff = new clsStaffCollection();
+
+        aStaff.ReportByName(txtFilter.Text);
+
+        lstStaffList.DataSource = aStaff.StaffList;
+        lstStaffList.DataValueField = "StaffId";
+        lstStaffList.DataTextField = "StaffName";
+
+        lstStaffList.DataBind();
+    }
+
+    protected void btnClearFilter_Click(object sender, EventArgs e)
+    {
+        clsStaffCollection aStaff = new clsStaffCollection();
+
+        aStaff.ReportByName("");
+
+        txtFilter.Text = "";
+
+        lstStaffList.DataSource = aStaff.StaffList;
+        lstStaffList.DataValueField = "StaffId";
+        lstStaffList.DataTextField = "StaffName";
+
+        lstStaffList.DataBind();
+    }
 }
