@@ -44,14 +44,64 @@ namespace ClassLibrary
 
         public clsStaffCollection()
         {
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
-
             clsDataConnection DB = new clsDataConnection();
 
             DB.Execute("sproc_tblStaff_SelectAll");
 
+            PopulateArray(DB);
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@StaffName", mThisStaff.StaffName);
+            DB.AddParameter("@StaffAddress", mThisStaff.StaffAddress);
+            DB.AddParameter("@StaffDateAdded", mThisStaff.StaffDate);
+            DB.AddParameter("@StaffPrivilage", mThisStaff.StaffPrivilage);
+            DB.AddParameter("@StaffRole", mThisStaff.StaffRole);
+
+            return DB.Execute("sproc_tblStaff_Insert");
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@StaffId", mThisStaff.StaffId);
+            DB.AddParameter("@StaffName", mThisStaff.StaffName);
+            DB.AddParameter("@StaffAddress", mThisStaff.StaffAddress);
+            DB.AddParameter("@StaffDateAdded", mThisStaff.StaffDate);
+            DB.AddParameter("@StaffPrivilage", mThisStaff.StaffPrivilage);
+            DB.AddParameter("@StaffRole", mThisStaff.StaffRole);
+
+            DB.Execute("sproc_tblStaff_Update");
+        }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@StaffId", mThisStaff.StaffId);
+            DB.Execute("sproc_tblStaff_Delete");
+        }
+
+        public void ReportByName(string StaffName)
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@StaffName", StaffName);
+            DB.Execute("sproc_tblStaff_FilterByName");
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount;
+
             RecordCount = DB.Count;
+            mStaffList = new List<clsStaff>();
+
             while (Index < RecordCount)
             {
                 clsStaff aStaff = new clsStaff();
@@ -66,19 +116,6 @@ namespace ClassLibrary
                 mStaffList.Add(aStaff);
                 Index++;
             }
-        }
-
-        public int Add()
-        {
-            clsDataConnection DB = new clsDataConnection();
-
-            DB.AddParameter("@StaffName", mThisStaff.StaffName);
-            DB.AddParameter("@StaffAddress", mThisStaff.StaffAddress);
-            DB.AddParameter("@StaffDateAdded", mThisStaff.StaffDate);
-            DB.AddParameter("@StaffPrivilage", mThisStaff.StaffPrivilage);
-            DB.AddParameter("@StaffRole", mThisStaff.StaffRole);
-
-            return DB.Execute("sproc_tblStaff_Insert");
         }
     }
     

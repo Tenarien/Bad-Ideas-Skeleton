@@ -8,9 +8,17 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 StaffId;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        StaffId = Convert.ToInt32(Session["StaffId"]);
+        if(IsPostBack == false)
+        {
+            if(StaffId != -1)
+            {
+                DisplayStaff();
+            }
+        }
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -28,6 +36,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = aStaff.Valid(StaffName, StaffAddress, StaffDate, StaffRole);
         if (Error == "")
         {
+            aStaff.StaffId = StaffId;
             aStaff.StaffName = StaffName;
             aStaff.StaffAddress = StaffAddress;
             aStaff.StaffDate = Convert.ToDateTime(StaffDate);
@@ -35,8 +44,17 @@ public partial class _1_DataEntry : System.Web.UI.Page
             aStaff.StaffPrivilage = chkPrivilage.Checked;
 
             clsStaffCollection StaffList = new clsStaffCollection();
-            StaffList.ThisStaff = aStaff;
-            StaffList.Add();
+            if (StaffId == -1)
+            {
+                StaffList.ThisStaff = aStaff;
+                StaffList.Add();
+            }
+            else
+            {
+                StaffList.ThisStaff.Find(StaffId);
+                StaffList.ThisStaff = aStaff;
+                StaffList.Update();
+            }
             Response.Redirect("StaffList.aspx");
         }
         else
@@ -66,5 +84,18 @@ public partial class _1_DataEntry : System.Web.UI.Page
             chkPrivilage.Checked = aStaff.StaffPrivilage;
             
         }
+    }
+
+    void DisplayStaff()
+    {
+        clsStaffCollection Staff = new clsStaffCollection();
+
+        Staff.ThisStaff.Find(StaffId);
+
+        txtStaffName.Text = Staff.ThisStaff.StaffName.ToString();
+        txtStaffAddress.Text = Staff.ThisStaff.StaffAddress.ToString();
+        txtStaffDate.Text = Staff.ThisStaff.StaffDate.ToString();
+        txtStaffRole.Text = Staff.ThisStaff.StaffRole.ToString();
+        chkPrivilage.Checked = Staff.ThisStaff.StaffPrivilage;
     }
 }
