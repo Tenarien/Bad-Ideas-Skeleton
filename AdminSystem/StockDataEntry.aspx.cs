@@ -40,17 +40,22 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //Capture the title
             aBook.Title = txtTitle.Text;
             //Capture the date added
-            aBook.DateAdded = Convert.ToDateTime(DateTime.Now);
+            aBook.DateAdded = Convert.ToDateTime(DateAdded);
             //Capture the price
-            aBook.Price = Convert.ToDecimal(txtPrice.Text);
+            aBook.Price = Convert.ToDecimal(Price);
             //Capture the quantity
-            aBook.Quantity = Convert.ToInt32(txtQuantity.Text);
+            aBook.Quantity = Convert.ToInt32(Quantity);
             //Capture the supplier id
-            aBook.SupplierId = Convert.ToInt32(txtSupplierId.Text);
-            //Store the book in the session object
-            Session["aBook"] = aBook;
-            //Navigate to the view page
-            Response.Redirect("StockViewer.aspx");
+            aBook.SupplierId = Convert.ToInt32(SupplierId);
+            //Capture available
+            aBook.Available = chkAvailable.Checked;
+            //
+            clsStockCollection StockList = new clsStockCollection();
+            StockList.ThisBook = aBook;
+            //add the new record
+            StockList.Add();
+            //Navigate to the list page
+            Response.Redirect("StockList.aspx");
         }
         else
         {
