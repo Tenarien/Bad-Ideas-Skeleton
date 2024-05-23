@@ -36,16 +36,13 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtOrderId.Text = OrderBook.ThisOrder.OrderId.ToString();
         txtCustomerId.Text = OrderBook.ThisOrder.CustomerId.ToString();
         txtStaffId.Text = OrderBook.ThisOrder.StaffId.ToString();
-        txtShippingAddress.Text = OrderBook.ThisOrder.ShippingAddress.ToString();
+        txtShippingAddress.Text = OrderBook.ThisOrder.ShippingAddress;
         chkShippingStatus.Checked = OrderBook.ThisOrder.ShippingStatus;
         txtOrderDate.Text = OrderBook.ThisOrder.OrderDate.ToString();
         txtTotalPrice.Text = OrderBook.ThisOrder.TotalPrice.ToString(); 
 
     }
-    protected void TextBox1_TextChanged(object sender, EventArgs e)
-    {
-
-    }
+    
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
@@ -129,4 +126,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         }
     }
+
+    
 }
