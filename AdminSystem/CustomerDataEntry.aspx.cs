@@ -8,11 +8,22 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
-    public int CustomerId { get; private set; }
 
+    //variable to store the primary key with page level scope
+    Int32 CustomerId;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //get the number of the customers to be processed
+        CustomerId = Convert.ToInt32(Session["CustomerId"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new recod
+            if (CustomerId != -1)
+            {
+                //display the current data for the record
+                DisplayCustomer();
+            }
+        }
     }
 
 
@@ -94,10 +105,27 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnCustomer.AccountVerification = chkAccountVerification.Checked;
             //create a new instance of the customer collection
             clsCustomerCollection CustomerList = new clsCustomerCollection();
-            //set thisCusomer property
-            CustomerList.ThisCustomer = AnCustomer;
-            //add the new record
-            CustomerList.Add();
+
+            //if this is a new record, then add data
+            if (CustomerId == -1)
+            {
+                //set the thiscustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //add the new record
+                CustomerList.Add();
+            }
+
+            //otherwise it must be an update
+            else
+            {
+                //find the record to updatw
+                CustomerList.ThisCustomer.Find(CustomerId);
+                //set te thiscustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //update the record
+                CustomerList.Update();
+            }
+
             //redirect back to the list page
             Response.Redirect("CustomerList.aspx");
         }
