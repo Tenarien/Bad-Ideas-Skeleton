@@ -6,11 +6,15 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
-    This is Customer Confirm/Delete page
+<body style="height: 557px">
     <form id="form1" runat="server">
         <div>
         </div>
+        <asp:Label ID="lblConfirmDelete" runat="server" Text="Are you sure you want to delete this record?"></asp:Label>
+        <p>
+            <asp:Button ID="btnYes" runat="server" Text="Yes" OnClick="btnYes_Click" />
+        <asp:Button ID="btnNo" runat="server" Text="No" OnClick="btnNo_Click" />
+        </p>
     </form>
 </body>
 </html>

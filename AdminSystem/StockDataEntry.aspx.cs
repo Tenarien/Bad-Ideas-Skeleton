@@ -8,9 +8,18 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 BookId;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        BookId = Convert.ToInt32(Session["BookId"]);
+        if(IsPostBack == false)
+        {
+            if(BookId != -1)
+            {
+                DisplayBook();
+            }
+        }
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -27,8 +36,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string Quantity = txtQuantity.Text;
         //Capture the supplier id
         string SupplierId = txtSupplierId.Text;
-        //capture the book ID
-        string BookId = txtBookId.Text;
         //Capture the availability
         string Available = chkAvailable.Text;
         //variable to store any error messages
@@ -37,6 +44,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = aBook.Valid(Title, DateAdded, Price, Quantity, SupplierId);
         if(Error == "")
         {
+            aBook.BookId = BookId;
             //Capture the title
             aBook.Title = txtTitle.Text;
             //Capture the date added
@@ -51,9 +59,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
             aBook.Available = chkAvailable.Checked;
             //
             clsStockCollection StockList = new clsStockCollection();
-            StockList.ThisBook = aBook;
-            //add the new record
-            StockList.Add();
+
+            if(BookId == -1)
+            {
+                StockList.ThisBook = aBook;
+                //add the new record
+                StockList.Add();
+            }
+            else
+            {
+                StockList.ThisBook.Find(BookId);
+                StockList.ThisBook = aBook;
+                StockList.Update();
+            }
             //Navigate to the list page
             Response.Redirect("StockList.aspx");
         }
@@ -81,5 +99,17 @@ public partial class _1_DataEntry : System.Web.UI.Page
             chkAvailable.Checked = aBook.Available;
 
         }
+    }
+
+    void DisplayBook()
+    {
+        clsStockCollection AllBooks = new clsStockCollection();
+        AllBooks.ThisBook.Find(BookId);
+        txtDateAdded.Text = AllBooks.ThisBook.DateAdded.ToString();
+        txtTitle.Text = AllBooks.ThisBook.Title;
+        txtPrice.Text = AllBooks.ThisBook.Price.ToString();
+        txtQuantity.Text = AllBooks.ThisBook.Quantity.ToString();
+        txtSupplierId.Text = AllBooks.ThisBook.SupplierId.ToString();
+        chkAvailable.Checked = AllBooks.ThisBook.Available;
     }
 }
