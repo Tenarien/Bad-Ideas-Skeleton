@@ -16,8 +16,14 @@ public partial class _1_List : System.Web.UI.Page
         {
             //Update the list box
             DisplayOrder();
-
         }
+
+        //Create a new instance of clsOrder
+        clsOrderUser AnUser = new clsOrderUser();
+        //get data from the session object 
+        AnUser = (clsOrderUser)Session["AnUser"];
+        //display the username 
+        Response.Write("Logged in as: " + AnUser.UserName);
     }
     void DisplayOrder()
     {

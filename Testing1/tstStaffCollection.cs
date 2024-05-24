@@ -187,14 +187,14 @@ namespace Testing1
             clsStaffCollection FilteredStaff = new clsStaffCollection();
             Boolean OK = true;
 
-            FilteredStaff.ReportByName("xxxx");
+            FilteredStaff.ReportByName("Maria DB");
             if (FilteredStaff.Count == 2)
             {
-                if (FilteredStaff.StaffList[0].StaffId != 25)
+                if (FilteredStaff.StaffList[0].StaffId != 7)
                 {
                     OK = false;
                 }
-                if (FilteredStaff.StaffList[1].StaffId != 26)
+                if (FilteredStaff.StaffList[1].StaffId != 8)
                 {
                     OK = false;
                 }
