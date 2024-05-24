@@ -10,11 +10,17 @@ namespace ClassLibrary
 
         public clsStockCollection()
         {
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
             clsDataConnection DB = new clsDataConnection();
             DB.Execute("sproc_tblStock_SelectAll");
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount;
             RecordCount = DB.Count;
+            mStockList = new List<clsStock>();
             while (Index < RecordCount)
             {
                 clsStock aBook = new clsStock();
@@ -88,6 +94,21 @@ namespace ClassLibrary
             DB.AddParameter("@SupplierId", mThisBook.SupplierId);
 
             DB.Execute("sproc_tblStock_Update");
+        }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookId", mThisBook.BookId);
+            DB.Execute("sproc_tblStock_Delete");
+        }
+
+        public void ReportByTitle(string Title)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Title", Title);
+            DB.Execute("sproc_tblStock_FilterByTitle");
+            PopulateArray(DB);
         }
     }
 }
