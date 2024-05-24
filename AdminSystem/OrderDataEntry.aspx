@@ -14,7 +14,7 @@
         <p>
             &nbsp;</p>
         <p>
-            <asp:TextBox ID="txtOrderId" runat="server" OnTextChanged="TextBox1_TextChanged" style="z-index: 1; left: 130px; top: 55px; position: absolute" width="128px"></asp:TextBox>
+            <asp:TextBox ID="txtOrderId" runat="server" style="z-index: 1; left: 130px; top: 55px; position: absolute" width="128px"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="lblOrderId0" runat="server" style="z-index: 1; left: 6px; top: 56px; position: absolute" Text="Order ID" width="107px"></asp:Label>
@@ -39,7 +39,8 @@
         <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 325px; top: 53px; position: absolute" Text="Find" width="60px" />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 17px; top: 271px; position: absolute; height: 21px"></asp:Label>
         <p>
-            &nbsp;</p>
+            <asp:Button ID="btnMainMenu" runat="server" style="z-index: 1; left: 294px; top: 323px; position: absolute" Text="Return to Main Menu" />
+        </p>
         <p>
             <asp:Label ID="lblStaffId" runat="server" style="z-index: 1; left: 6px; top: 121px; position: absolute" Text="Staff ID"></asp:Label>
         </p>
