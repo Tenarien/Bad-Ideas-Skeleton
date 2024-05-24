@@ -14,9 +14,7 @@
         <p>
             &nbsp;</p>
         <p>
-
             <asp:TextBox ID="txtOrderId" runat="server" style="z-index: 1; left: 130px; top: 55px; position: absolute" width="128px"></asp:TextBox>
-
         </p>
         <p>
             <asp:Label ID="lblOrderId0" runat="server" style="z-index: 1; left: 6px; top: 56px; position: absolute" Text="Order ID" width="107px"></asp:Label>
