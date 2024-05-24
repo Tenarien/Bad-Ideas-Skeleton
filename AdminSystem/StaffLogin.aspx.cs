@@ -27,6 +27,8 @@ public partial class StaffLogin : System.Web.UI.Page
 
         Found = AnUser.FindUser(UserName, password);
 
+        Session["AnUser"] = AnUser;
+
         if (txtUserName.Text == "")
         {
             lblError.Text = "Enter a Username ";

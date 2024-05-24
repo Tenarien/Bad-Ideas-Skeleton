@@ -119,5 +119,71 @@ namespace Testing3
             AllBooks.ThisBook.Find(PrimaryKey);
             Assert.AreEqual (AllBooks.ThisBook, TestBook);
         }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsStockCollection AllBooks = new clsStockCollection();
+            clsStock TestBook = new clsStock();
+            Int32 PrimaryKey = 0;
+
+            TestBook.Available = true;
+            TestBook.BookId = 1;
+            TestBook.Title = "TestBook";
+            TestBook.Price = 1.00m;
+            TestBook.Quantity = 100;
+            TestBook.SupplierId = 1;
+            TestBook.DateAdded = DateTime.Now;
+
+            AllBooks.ThisBook = TestBook;
+            PrimaryKey = AllBooks.Add();
+            TestBook.BookId = PrimaryKey;
+
+            AllBooks.ThisBook.Find(PrimaryKey);
+            AllBooks.Delete();
+            Boolean Found = AllBooks.ThisBook.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void ReportByTitleMethodOK()
+        {
+            clsStockCollection AllBooks = new clsStockCollection();
+            clsStockCollection FilteredBooks = new clsStockCollection();
+            FilteredBooks.ReportByTitle("");
+            Assert.AreEqual(AllBooks.Count, FilteredBooks.Count);
+        }
+
+        [TestMethod]
+        public void ReportByTitleNotFound() 
+        {
+            clsStockCollection FilteredBooks = new clsStockCollection();
+            FilteredBooks.ReportByTitle("abcxyz");
+            Assert.AreEqual(0, FilteredBooks.Count);
+        }
+
+        [TestMethod]
+        public void ReportByTitleTestDataFound()
+        {
+            clsStockCollection FilteredBooks = new clsStockCollection();
+            Boolean OK = true;
+            FilteredBooks.ReportByTitle("The Hobbit");
+            if (FilteredBooks.Count == 2)
+            {
+                if (FilteredBooks.StockList[0].BookId != 2)
+                {
+                    OK = false;
+                }
+                if (FilteredBooks.StockList[1].BookId != 25)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 }
