@@ -14,6 +14,10 @@ public partial class _1_List : System.Web.UI.Page
         {
             DisplayBooks();
         }
+
+        clsStockUser aUser = new clsStockUser();
+        aUser = (clsStockUser)Session["aUser"];
+        Response.Write("Logged in as: " + aUser.UserName);
     }
 
     void DisplayBooks()
@@ -81,5 +85,10 @@ public partial class _1_List : System.Web.UI.Page
         lstStockList.DataValueField = "BookId";
         lstStockList.DataTextField = "Title";
         lstStockList.DataBind();
+    }
+
+    protected void btnMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }

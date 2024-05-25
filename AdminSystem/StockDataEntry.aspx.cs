@@ -112,4 +112,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtSupplierId.Text = AllBooks.ThisBook.SupplierId.ToString();
         chkAvailable.Checked = AllBooks.ThisBook.Available;
     }
+
+    protected void btnMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
 }
