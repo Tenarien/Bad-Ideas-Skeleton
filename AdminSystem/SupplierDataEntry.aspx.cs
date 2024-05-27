@@ -29,4 +29,23 @@ protected void btnok_Click(object sender, EventArgs e)
         Response.Redirect("SupplierViewer.aspx");
 
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsSupplier ASupplier = new clsSupplier();
+
+        Int32 SupplierId;
+        Boolean Found = false;
+        SupplierId = Convert.ToInt32(txtSupplierId.Text);
+
+        Found = ASupplier.Find(SupplierId);
+
+        if (Found == true)
+        {
+            txtSupplierName.Text = ASupplier.SupplierName;
+            TxtSupplierAddress.Text = ASupplier.SupplierAddress;
+            txtContractDate.Text = ASupplier.ContractDate.ToString();
+            chkAvailableSupplier.Checked = ASupplier.AvailableSupplier;
+        }
+    }
 }

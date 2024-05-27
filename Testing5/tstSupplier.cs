@@ -2,14 +2,14 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Testing5
+namespace Testing3
 {
     [TestClass]
     public class tstSupplier
 
     {
         [TestMethod]
-        public void TestMethod1()
+        public void InstanceOK()
         {
             clsSupplier AnSupplier = new clsSupplier();
             Assert.IsNotNull(AnSupplier);
@@ -80,5 +80,97 @@ namespace Testing5
             //test to see that the two values are the same
             Assert.AreEqual(AnSupplier.AvailableSupplier, TestData);
         }
+
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsSupplier ASupplier = new clsSupplier();
+            Boolean Found = false;
+            Int32 SupplierId = 3;
+            Found = ASupplier.Find(SupplierId);
+            Assert.IsTrue(Found);
+
+        }
+
+        [TestMethod]
+        public void TestSupplierIdFound()
+        {
+            clsSupplier ASupplier = new clsSupplier();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SupplierId = 3;
+            Found = ASupplier.Find(SupplierId);
+            if (ASupplier.SupplierId != 3)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestSuppplierNameFound()
+        {
+            clsSupplier ASupplier = new clsSupplier();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SupplierId = 3;
+            Found = ASupplier.Find(SupplierId);
+            if (ASupplier.SupplierName != "tarr")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestContractDateFound()
+        {
+            clsSupplier ASupplier = new clsSupplier();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SupplierId = 3;
+            Found = ASupplier.Find(SupplierId);
+            if (ASupplier.ContractDate != Convert.ToDateTime("09/05/2024"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestAvailableSupplierFound()
+        {
+            clsSupplier ASupplier = new clsSupplier();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SupplierId = 3;
+            Found = ASupplier.Find(SupplierId);
+            if (ASupplier.AvailableSupplier != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestSupplierAddressFound()
+        {
+            clsSupplier ASupplier = new clsSupplier();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SupplierId = 3;
+            Found = ASupplier.Find(SupplierId);
+            if (ASupplier.SupplierAddress != "ls2")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
     }
 }
