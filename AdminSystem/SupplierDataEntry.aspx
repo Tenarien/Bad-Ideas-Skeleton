@@ -31,7 +31,7 @@
             &nbsp;</p>
         <p>
             &nbsp;</p>
-        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 26px; top: 337px; position: absolute; height: 15px; width: 54px; right: 892px;"></asp:Label>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 26px; top: 337px; position: absolute; height: 15px; width: 592px; right: 354px;"></asp:Label>
         <p>
             <asp:CheckBox ID="chkAvailableSupplier" runat="server" style="z-index: 1; left: 155px; top: 285px; position: absolute" Text="AvailableSupplier" />
         </p>

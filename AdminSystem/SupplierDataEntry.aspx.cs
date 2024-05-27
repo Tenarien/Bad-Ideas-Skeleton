@@ -18,15 +18,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
 protected void btnok_Click(object sender, EventArgs e)
     {
         clsSupplier AnSupplier = new clsSupplier();
-        //capture all input data
-        Session["AnSupplier"] = AnSupplier;
-        AnSupplier.SupplierId = Convert.ToInt32(txtSupplierId.Text);
-        AnSupplier.SupplierName = txtSupplierName.Text;
-        AnSupplier.ContractDate = Convert.ToDateTime(DateTime.Now);
-        AnSupplier.AvailableSupplier = chkAvailableSupplier.Checked;
-        AnSupplier.SupplierAddress = TxtSupplierAddress.Text;
+        String SupplierName = txtSupplierName.Text;
+        String SupplierAddress = TxtSupplierAddress.Text;
+        String ContractDate = txtContractDate.Text;
+        String AvailableSupplier = chkAvailableSupplier.Text;
+        String Error = "";
+        Error = AnSupplier.Valid(SupplierName, SupplierAddress, ContractDate, AvailableSupplier);
 
-        Response.Redirect("SupplierViewer.aspx");
+        if(Error == "")
+        {
+            AnSupplier.SupplierName = SupplierName;
+            AnSupplier.ContractDate = Convert.ToDateTime(ContractDate);
+            AnSupplier.AvailableSupplier = chkAvailableSupplier.Checked;
+            AnSupplier.SupplierAddress = SupplierAddress;
+
+            Session["AnSupplier"] = AnSupplier;
+            Response.Redirect("SupplierViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
+
+
+
 
     }
 
