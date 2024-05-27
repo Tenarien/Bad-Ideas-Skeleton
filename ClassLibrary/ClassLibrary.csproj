@@ -56,6 +56,7 @@
     <Compile Include="clsSupplier.cs" />
     <Compile Include="clsStaff.cs" />
     <Compile Include="clsStock.cs" />
+    <Compile Include="clsSupplierCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
