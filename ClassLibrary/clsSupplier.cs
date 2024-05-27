@@ -93,6 +93,48 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string supplierName, string supplierAddress, string contractDate, string availableSupplier)
+        {
+            String Error = "";
+            DateTime TestDate;
+
+            if(supplierName.Length == 0)
+            {
+                Error += "SupplierName Cant be Empty.";
+            }
+            if (supplierName.Length >= 21)
+            {
+                Error += "SupplierName is OverLimit. Limit is 20 Characters.";
+            }
+
+            if (supplierAddress.Length == 0)
+            {
+                Error += "Supplier Address Cant be Empty.";
+            }
+            if (supplierAddress.Length >= 51)
+            {
+                Error += "SupplierAddress is OverLimit. Limit is 50 Characters.";
+            }
+
+            try
+            {
+                TestDate = Convert.ToDateTime(contractDate);
+                if(TestDate < DateTime.Now.Date)
+                {
+                    Error += "DAte Can't be in the Past.";
+                }
+                if (TestDate > DateTime.Now.Date)
+                {
+                    Error += "DAte Can't be in the Future.";
+                }
+            }
+            catch
+            {
+                Error += "Date is in Invalid formaat.";
+            }
+            return Error;
+        }
     }
 
 }
