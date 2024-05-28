@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Diagnostics;
 
-namespace Testing3
+namespace Testing5
 {
     [TestClass]
     public class tstSupplier
