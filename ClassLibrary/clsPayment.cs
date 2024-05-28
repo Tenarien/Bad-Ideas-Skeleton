@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net;
 
 namespace ClassLibrary
@@ -67,6 +68,59 @@ namespace ClassLibrary
             {
                 return false;
             }
+
+        }
+
+        public string Valid(string paymentDate, string paymentMethod, string amount, string currency, bool statusCleared)
+        {
+            String Error = "";
+            Double TestAmount;
+            DateTime TestPaymentDate;
+
+            if (paymentMethod.Length <= 0)
+            {
+                Error += "method should have atleast one Character";
+            }
+            if (paymentMethod.Length > 15)
+            {
+                Error += "Payment Method cant be more than 15 words.";
+            }
+
+            try
+            {
+                TestAmount = Convert.ToDouble(amount);
+                if (TestAmount <= 0)
+                {
+                    Error += "Amount Should be bigger than 0.";
+                }
+                if (TestAmount > 2500.00)
+                {
+                    Error += "Limit is 2500.00";
+                }
+            }
+            catch
+            {
+                Error += "Amount is in Invalid format";
+            }
+
+            try
+            {
+                TestPaymentDate = Convert.ToDateTime(paymentDate);
+                if (TestPaymentDate < DateTime.Now.Date)
+                {
+                    Error = Error + "Date mustnot be in the past ";
+                }
+                if (TestPaymentDate > DateTime.Now.Date)
+                {
+                    Error = Error + "Date mustnot be in the future";
+                }
+            }
+            catch
+            {
+                Error = Error + "Date is in inValid Format";
+            }
+
+            return Error;
         }
     }
 }
