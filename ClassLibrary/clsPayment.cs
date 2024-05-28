@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 
 namespace ClassLibrary
 {
@@ -44,6 +45,28 @@ namespace ClassLibrary
         {
             get { return mStatusCleared; }
             set { mStatusCleared= value; }
+        }
+
+        public bool Find(int paymentID)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@PaymentID", paymentID);
+            DB.Execute("sproc_tblPayment_FilterbyPaymentID");
+            if (DB.Count == 1)
+            {
+                mPaymentID = Convert.ToInt32(DB.DataTable.Rows[0]["PaymentID"]);
+                mPaymentMethod = Convert.ToString(DB.DataTable.Rows[0]["PaymentMethod"]);
+                mAmount = Convert.ToDouble(DB.DataTable.Rows[0]["Amount"]);
+                mCurrency = Convert.ToString(DB.DataTable.Rows[0]["Currency"]);
+                mStatusCleared = Convert.ToBoolean(DB.DataTable.Rows[0]["StatusCleared"]);
+                mPaymentDate = Convert.ToDateTime(DB.DataTable.Rows[0]["PaymentDate"]);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
