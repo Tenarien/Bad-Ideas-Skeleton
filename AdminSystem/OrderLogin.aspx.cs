@@ -44,7 +44,7 @@ public partial class OrderLogin : System.Web.UI.Page
         else if (Found == true)
         {
             //redirect to the lsit page 
-            Response.Redirect("AnOrderList.aspx");
+            Response.Redirect("OrderList.aspx");
         }
         else if (Found == false)
         {

@@ -10,9 +10,9 @@
     <form id="form1" runat="server">
         <div>
             <asp:Button ID="btnMainMenu" runat="server" style="z-index: 1; left: 353px; top: 430px; position: absolute" Text="Return to Main Menu" />
-            <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" style="z-index: 1; left: 118px; top: 320px; position: absolute" Text="Edit" width="55px" />
+            <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" style="z-index: 1; left: 123px; top: 319px; position: absolute" Text="Edit" width="55px" height="26px" />
             <asp:ListBox ID="lstOrderList" runat="server" style="z-index: 1; left: 8px; top: 92px; position: absolute; height: 187px; width: 336px"></asp:ListBox>
-            <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" style="z-index: 1; left: 28px; top: 320px; position: absolute" Text="Add" width="55px" />
+            <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" style="z-index: 1; left: 28px; top: 320px; position: absolute" Text="Add" width="55px" height="26px" />
         </div>
         <p>
             &nbsp;</p>
@@ -21,7 +21,7 @@
             <asp:Button ID="btnApplyFilter" runat="server" OnClick="btnApplyFilter_Click" style="z-index: 1; left: 21px; top: 433px; position: absolute" Text="Apply Filter" />
             <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" style="z-index: 1; left: 154px; top: 432px; position: absolute" Text="Clear Filter" />
         </p>
-            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 204px; top: 320px; position: absolute; height: 26px;" Text="Delete" />
+            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 218px; top: 318px; position: absolute; height: 26px;" Text="Delete" />
             <asp:Label ID="lblEnterShippingAddress" runat="server" style="z-index: 1; left: 34px; top: 385px; position: absolute" Text="Enter a Shipping Address"></asp:Label>
         <asp:TextBox ID="txtEnterShippimgAddress" runat="server" style="z-index: 1; left: 224px; top: 380px; position: absolute"></asp:TextBox>
     </form>
