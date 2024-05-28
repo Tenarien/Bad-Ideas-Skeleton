@@ -338,7 +338,8 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //test data
-            string CustomerFirstName = "vvvvv"; //should be ok
+            string CustomerFirstName = "";
+            CustomerFirstName = CustomerFirstName.PadRight(19, 'v');
             //invoke the method
             Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
             //test to see that the result is correct
@@ -353,7 +354,8 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //test data
-            string CustomerFirstName = "vvvvvvv"; //should be ok
+            string CustomerFirstName = "";
+            CustomerFirstName = CustomerFirstName.PadRight(20, 'v');
             //invoke the method
             Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
             //test to see that the result is correct
@@ -368,7 +370,8 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //test data
-            string CustomerFirstName = "vvvv"; //should be ok
+            string CustomerFirstName = "";
+            CustomerFirstName = CustomerFirstName.PadRight(10, 'v');
             //invoke the method
             Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
             //test to see that the result is correct
@@ -578,7 +581,8 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //test data
-            string CustomerSurname = "vvvvv"; //should be ok
+            string CustomerSurname = "";
+            CustomerSurname = CustomerSurname.PadRight(19, 'v');
             //invoke the method
             Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
             //test to see that the result is correct
@@ -593,7 +597,8 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //test data
-            string CustomerSurname = "vvvvvvv"; //should be ok
+            string CustomerSurname = "";
+            CustomerSurname = CustomerSurname.PadRight(20, 'v');
             //invoke the method
             Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
             //test to see that the result is correct
@@ -608,7 +613,8 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //test data
-            string CustomerSurname = "vvvv"; //should be ok
+            string CustomerSurname = "";
+            CustomerSurname = CustomerSurname.PadRight(10, 'v');
             //invoke the method
             Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
             //test to see that the result is correct
@@ -700,7 +706,8 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //test data
-            string CustomerEmail = "vvvvv"; //should be ok
+            string CustomerEmail = "";
+            CustomerEmail = CustomerEmail.PadRight(49, 'v');
             //invoke the method
             Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
             //test to see that the result is correct
@@ -715,7 +722,8 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //test data
-            string CustomerEmail = "vvvvvvv"; //should be ok
+            string CustomerEmail = "";
+            CustomerEmail = CustomerEmail.PadRight(50, 'v');
             //invoke the method
             Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
             //test to see that the result is correct
@@ -730,7 +738,8 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //test data
-            string CustomerEmail = "vvvv"; //should be ok
+            string CustomerEmail = "";
+            CustomerEmail = CustomerEmail.PadRight(25, 'v');
             //invoke the method
             Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
             //test to see that the result is correct
@@ -739,7 +748,7 @@ namespace Testing4
 
 
         [TestMethod]
-        public void CustomerEmailPlusOne()
+        public void CustomerEmailMaxPlusOne()
         {
             clsCustomer AnCustomer = new clsCustomer();
             //string variable to store any error message
@@ -822,7 +831,8 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //test data
-            string CustomerAddress = "vvvvv"; //should be ok
+            string CustomerAddress = "";
+            CustomerAddress = CustomerAddress.PadRight(49, 'v');
             //invoke the method
             Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
             //test to see that the result is correct
@@ -837,7 +847,8 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //test data
-            string CustomerAddress = "vvvvvvv"; //should be ok
+            string CustomerAddress = "";
+            CustomerAddress = CustomerAddress.PadRight(50, 'v');
             //invoke the method
             Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
             //test to see that the result is correct
@@ -852,7 +863,8 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //test data
-            string CustomerAddress = "vvvv"; //should be ok
+            string CustomerAddress = "";
+            CustomerAddress = CustomerAddress.PadRight(25, 'v');
             //invoke the method
             Error = AnCustomer.Valid(CustomerFirstName, CustomerSurname, CustomerEmail, CustomerAddress, AccountCreationDate);
             //test to see that the result is correct
