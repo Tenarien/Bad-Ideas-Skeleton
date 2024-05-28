@@ -157,7 +157,7 @@ namespace Testing3
 
             Found = aBook.Find(BookId);
 
-            if (aBook.DateAdded != Convert.ToDateTime("31/01/2024"))
+            if (aBook.DateAdded != Convert.ToDateTime("25/05/2024"))
             {
                 OK = false;
             }
