@@ -13,12 +13,17 @@ namespace ClassLibrary
 
         public clsSupplierCollection()
         {
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
             clsDataConnection DB = new clsDataConnection();
             DB.Execute("sproc_tblSupplier_SelectAll");
-            RecordCount = DB.Count;
+            PopulateArray(DB); 
+        }
 
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount = 0;
+            RecordCount = DB.Count;
+            mSupplierlist = new List<clsSupplier>();
 
             while (Index < RecordCount)
             {
@@ -92,9 +97,9 @@ namespace ClassLibrary
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@SupplierName", SupplierName);
-            DB.Execute("");
+            DB.Execute("sproc_tblSupplier_FilterBySupplierName");
 
-            //PopulateArray(DB);
+            PopulateArray(DB);
         }
 
         public void Update()
