@@ -10,7 +10,14 @@
    
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="lblText" runat="server" Text="Are you want to delete this?"></asp:Label>
         </div>
+        <p>
+            <asp:Button ID="btnyes" runat="server" OnClick="btnyes_Click" Text="Yes" />
+        </p>
+        <p>
+            <asp:Button ID="btnNo" runat="server" OnClick="btnNo_Click" Text="No" />
+        </p>
     </form>
 </body>
 </html>
