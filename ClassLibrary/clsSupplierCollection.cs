@@ -91,8 +91,8 @@ namespace ClassLibrary
         public void ReportBySupplierName(string SupplierName)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@ProductName", SupplierName);
-            DB.Execute("stpr_tblProduct_FilterByProductName");
+            DB.AddParameter("@SupplierName", SupplierName);
+            DB.Execute("");
 
             //PopulateArray(DB);
         }
@@ -103,7 +103,7 @@ namespace ClassLibrary
             DB.AddParameter("@SupplierId", mThisSupplier.SupplierId);
             DB.AddParameter("@SupplierName", mThisSupplier.SupplierName);
             DB.AddParameter("@SupplierAddress", mThisSupplier.SupplierAddress);
-            DB.AddParameter("@AvailabileSupplier", mThisSupplier.AvailableSupplier);
+            DB.AddParameter("@AvailableSupplier", mThisSupplier.AvailableSupplier);
             DB.AddParameter("@ContractDate", mThisSupplier.ContractDate);
 
             DB.Execute("sproc_tblSupplier_Update");
