@@ -8,11 +8,31 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 PaymentID;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        PaymentID = Convert.ToInt32(Session["PaymentID"]);
+        if (IsPostBack == false)
+        {
+            if (PaymentID != -1)
+            {
+                DisplayPayment();
+            }
+        }
     }
 
+    void DisplayPayment()
+    {
+        clsPaymentCollection PaymentsAll = new clsPaymentCollection();
+        PaymentsAll.ThisPayment.Find(PaymentID);
+
+        txtPaymentID.Text = PaymentsAll.ThisPayment.PaymentID.ToString();
+        txtPaymentMethod.Text = PaymentsAll.ThisPayment.PaymentMethod.ToString();
+        txtCurrency.Text = PaymentsAll.ThisPayment.Currency.ToString();
+        txtAmount.Text = PaymentsAll.ThisPayment.Amount.ToString();
+        txtPaymentDate.Text = PaymentsAll.ThisPayment.PaymentDate.ToString();
+        chkStatusCleared.Checked = PaymentsAll.ThisPayment.StatusCleared;
+    }
 
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -31,13 +51,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
         if (Error == "")
         {
+            APayment.PaymentID = PaymentID; 
             APayment.PaymentMethod = PaymentMethod;
             APayment.Amount = Convert.ToDouble(Amount);
             APayment.Currency = Currency;
             APayment.PaymentDate = Convert.ToDateTime(PaymentDate);
             APayment.StatusCleared = Convert.ToBoolean(StatusCleared);
 
-            /*clsPaymentCollection PaymentList = new clsPaymentCollection();
+            clsPaymentCollection PaymentList = new clsPaymentCollection();
 
             if (PaymentID == -1)
             {
@@ -50,9 +71,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 PaymentList.ThisPayment = APayment;
                 PaymentList.Update();
             }
-            */
-            Session["APayment"] = APayment;
-            Response.Redirect("PaymentViewer.aspx");
+            Response.Redirect("PaymentList.aspx");
         }
         else
         {
