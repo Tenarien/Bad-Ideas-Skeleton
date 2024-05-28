@@ -68,6 +68,7 @@ namespace ClassLibrary
             {
                 return false;
             }
+
         }
 
         public string Valid(string paymentDate, string paymentMethod, string amount, string currency, bool statusCleared)
