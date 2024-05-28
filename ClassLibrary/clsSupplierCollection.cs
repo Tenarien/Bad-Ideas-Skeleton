@@ -69,5 +69,44 @@ namespace ClassLibrary
                 mThisSupplier = value;
             }
         }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SupplierName", mThisSupplier.SupplierName);
+            DB.AddParameter("@SupplierAddress", mThisSupplier.SupplierAddress);
+            DB.AddParameter("@AvailableSupplier", mThisSupplier.AvailableSupplier);
+            DB.AddParameter("@ContractDate", mThisSupplier.ContractDate);
+
+            return DB.Execute("sproc_tblSupplier_Insert");
+        }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SupplierId", mThisSupplier.SupplierId);
+            DB.Execute("sproc_tblSupplier_Delete");
+        }
+
+        public void ReportBySupplierName(string SupplierName)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductName", SupplierName);
+            DB.Execute("stpr_tblProduct_FilterByProductName");
+
+            //PopulateArray(DB);
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SupplierId", mThisSupplier.SupplierId);
+            DB.AddParameter("@SupplierName", mThisSupplier.SupplierName);
+            DB.AddParameter("@SupplierAddress", mThisSupplier.SupplierAddress);
+            DB.AddParameter("@AvailabileSupplier", mThisSupplier.AvailableSupplier);
+            DB.AddParameter("@ContractDate", mThisSupplier.ContractDate);
+
+            DB.Execute("sproc_tblSupplier_Update");
+        }
     }
 }

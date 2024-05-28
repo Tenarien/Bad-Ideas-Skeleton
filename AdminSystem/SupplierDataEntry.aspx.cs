@@ -32,8 +32,10 @@ protected void btnok_Click(object sender, EventArgs e)
             AnSupplier.AvailableSupplier = chkAvailableSupplier.Checked;
             AnSupplier.SupplierAddress = SupplierAddress;
 
-            Session["AnSupplier"] = AnSupplier;
-            Response.Redirect("SupplierViewer.aspx");
+            clsSupplierCollection SupplierList = new clsSupplierCollection();
+            SupplierList.ThisSupplier= AnSupplier;
+            SupplierList.Add();
+            Response.Redirect("SupplierList.aspx");
         }
         else
         {
