@@ -70,4 +70,26 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a Supplier to Delete.";
         }
     }
+
+    protected void btnApplyFilter_Click(object sender, EventArgs e)
+    {
+        clsSupplierCollection ASupplier = new clsSupplierCollection();
+        ASupplier.ReportBySupplierName(txtSupplierNameFilter.Text);
+        lstSupplierList.DataSource = ASupplier.SupplierList;
+        lstSupplierList.DataValueField= "SupplierId";
+        lstSupplierList.DataTextField = "SupplierName";
+        lstSupplierList.DataBind();
+
+    }
+
+    protected void btnClearFilter_Click(object sender, EventArgs e)
+    {
+        clsSupplierCollection ASupplier = new clsSupplierCollection();
+        ASupplier.ReportBySupplierName("");
+        txtSupplierNameFilter.Text = ""; 
+        lstSupplierList.DataSource = ASupplier.SupplierList;
+        lstSupplierList.DataValueField = "SupplierId";
+        lstSupplierList.DataTextField = "SupplierName";
+        lstSupplierList.DataBind();
+    }
 }

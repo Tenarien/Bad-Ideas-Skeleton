@@ -160,10 +160,8 @@ namespace Testing5
         {
 
             clsSupplierCollection AllSuppliers = new clsSupplierCollection();
-
             clsSupplierCollection FilteredSuppliers = new clsSupplierCollection();
             FilteredSuppliers.ReportBySupplierName("");
-
             Assert.AreEqual(AllSuppliers.Count, FilteredSuppliers.Count);
 
 
@@ -175,7 +173,6 @@ namespace Testing5
 
             clsSupplierCollection FilteredSuppliers = new clsSupplierCollection();
             FilteredSuppliers.ReportBySupplierName("Supplier Name A");
-
             Assert.AreEqual(0, FilteredSuppliers.Count);
 
 
@@ -188,8 +185,7 @@ namespace Testing5
         {
             clsSupplierCollection FilteredSuppliers = new clsSupplierCollection();
             Boolean OK = true;
-            FilteredSuppliers.ReportBySupplierName("Database Management");
-
+            FilteredSuppliers.ReportBySupplierName("Shahzaib Faryad");
             if (FilteredSuppliers.Count == 2)
             {
                 if (FilteredSuppliers.SupplierList[0].SupplierId != 25)
@@ -200,7 +196,6 @@ namespace Testing5
                 {
                     OK = false;
                 }
-
             }
             else
             {
