@@ -1,23 +1,23 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using ClassLibrary;
 
-namespace Testing5
+namespace Testing6
 {
     [TestClass]
-    public class tstSupplierUser
+    public class tstPaymentUser
     {
         [TestMethod]
         public void InstanceOK()
         {
-            clsSupplierUser AnUser = new clsSupplierUser();
+            clsPaymentUser AnUser = new clsPaymentUser();
             Assert.IsNotNull(AnUser);
         }
 
         [TestMethod]
         public void UserIdPropertyOK()
         {
-            clsSupplierUser AnUser = new clsSupplierUser();
+            clsPaymentUser AnUser = new clsPaymentUser();
             Int32 TestData = 1;
             AnUser.UserId = TestData;
             Assert.AreEqual(AnUser.UserId, TestData);
@@ -27,8 +27,8 @@ namespace Testing5
         [TestMethod]
         public void UserNamePropertyOK()
         {
-            clsSupplierUser AnUser = new clsSupplierUser();
-            string TestData = "Shahzaib Faryad";
+            clsPaymentUser AnUser = new clsPaymentUser();
+            string TestData = "Syeda";
             AnUser.UserName = TestData;
             Assert.AreEqual(AnUser.UserName, TestData);
         }
@@ -37,8 +37,8 @@ namespace Testing5
         [TestMethod]
         public void PasswordPropertyOK()
         {
-            clsSupplierUser AnUser = new clsSupplierUser();
-            string TestData = "1111";
+            clsPaymentUser AnUser = new clsPaymentUser();
+            string TestData = "Password123";
             AnUser.Password = TestData;
             Assert.AreEqual(AnUser.Password, TestData);
         }
@@ -48,9 +48,8 @@ namespace Testing5
         [TestMethod]
         public void DepartmentPropertyOK()
         {
-            clsSupplierUser AnUser = new clsSupplierUser();
-            string TestData = "Suppliers Department";
-
+            clsPaymentUser AnUser = new clsPaymentUser();
+            string TestData = "Payments Department";
             AnUser.Department = TestData;
             Assert.AreEqual(AnUser.Department, TestData);
         }
@@ -60,13 +59,10 @@ namespace Testing5
 
         public void FindUserMethodOK()
         {
-            clsSupplierUser AnUser = new clsSupplierUser();
-
+            clsPaymentUser AnUser = new clsPaymentUser();
             Boolean Found = false;
-
-            string UserName = "Shahzaib";
-            string Password = "1111";
-
+            string UserName = "Syeda";
+            string Password = "Password123";
             Found = AnUser.FindUser(UserName, Password);
             Assert.IsTrue(Found);
         }
@@ -77,13 +73,11 @@ namespace Testing5
 
         public void TestUserNamePWFound()
         {
-            clsSupplierUser AnUser = new clsSupplierUser();
-
+            clsPaymentUser AnUser = new clsPaymentUser();
             Boolean Found = false;
             Boolean Ok = true;
-
-            string UserName = "Shahzaib";
-            string Password = "1111";
+            string UserName = "Syeda";
+            string Password = "Password123";
 
             Found = AnUser.FindUser(UserName, Password);
             if (AnUser.UserName != UserName && AnUser.Password != Password)
