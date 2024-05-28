@@ -67,5 +67,115 @@ namespace Testing6
             APayment.StatusCleared = TestData;
             Assert.AreEqual(APayment.StatusCleared, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsPayment APayment = new clsPayment();
+            Boolean Found = false;
+            Int32 PaymentID = 2;
+            Found = APayment.Find(PaymentID);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestPaymentIDFound()
+        {
+            clsPayment APayment = new clsPayment();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 PaymentID = 2;
+
+            Found = APayment.Find(PaymentID);
+            if (APayment.PaymentID != 2)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestPaymentDateFound()
+        {
+            clsPayment APayment = new clsPayment();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 PaymentID = 2;
+
+            Found = APayment.Find(PaymentID);
+            if (APayment.PaymentDate != Convert.ToDateTime("28/05/2024"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestPaymentMethodFound()
+        {
+            clsPayment APayment = new clsPayment();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 PaymentID = 2;
+
+            Found = APayment.Find(PaymentID);
+            if (APayment.PaymentMethod != "Card")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestAmountFound()
+        {
+            clsPayment APayment = new clsPayment();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 PaymentID = 2;
+
+            Found = APayment.Find(PaymentID);
+            if (APayment.Amount != 50.5)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCurrencyFound()
+        {
+            clsPayment APayment = new clsPayment();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 PaymentID = 2;
+
+            Found = APayment.Find(PaymentID);
+            if (APayment.Currency != "Dollar")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        
+        [TestMethod]
+        public void TestStatusClearedFound()
+        {
+            clsPayment APayment = new clsPayment();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 PaymentID = 2;
+
+            Found = APayment.Find(PaymentID);
+            if (APayment.StatusCleared != false)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
     }
 }

@@ -20,7 +20,7 @@
         <asp:Label ID="lblCurrency" runat="server" style="z-index: 1; left: 11px; top: 258px; position: absolute; right: 2064px;" Text="Currency" width="153px"></asp:Label>
         <asp:TextBox ID="txtCurrency" runat="server" style="z-index: 1; left: 161px; top: 256px; position: absolute" width="128px"></asp:TextBox>
         <asp:CheckBox ID="chkStatusCleared" runat="server" style="z-index: 1; left: 153px; top: 313px; position: absolute" Text="Status Cleared" />
-        <asp:Button ID="btnCancel" runat="server"  style="z-index: 1; top: 408px; position: absolute; right: 744px;" Text="Cancel" height="26px" Width="60px" OnClick="btnCancel_Click"/>
+        <asp:Button ID="btnCancel" runat="server"  style="z-index: 1; top: 407px; position: absolute; left: 131px;" Text="Cancel" height="26px" Width="60px" OnClick="btnCancel_Click"/>
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 41px; top: 407px; position: absolute; height: 26px;" Text="OK" />
         <p>
             &nbsp;</p>
