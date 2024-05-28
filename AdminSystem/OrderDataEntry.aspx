@@ -39,7 +39,7 @@
         <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 325px; top: 53px; position: absolute" Text="Find" width="60px" />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 17px; top: 271px; position: absolute; height: 21px"></asp:Label>
         <p>
-            <asp:Button ID="btnMainMenu" runat="server" style="z-index: 1; left: 294px; top: 323px; position: absolute" Text="Return to Main Menu" />
+            <asp:Button ID="btnMainMenu" runat="server" style="z-index: 1; left: 294px; top: 323px; position: absolute" Text="Return to Main Menu" OnClick="btnMainMenu_Click" />
         </p>
         <p>
             <asp:Label ID="lblStaffId" runat="server" style="z-index: 1; left: 6px; top: 121px; position: absolute" Text="Staff ID"></asp:Label>
