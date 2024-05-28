@@ -17,7 +17,47 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
+        clsPayment APayment = new clsPayment();
 
+
+        string PaymentMethod = txtPaymentMethod.Text;
+        string Amount = txtAmount.Text;
+        string Currency = txtCurrency.Text;
+        string PaymentDate = txtPaymentDate.Text;
+        Boolean StatusCleared = Convert.ToBoolean(chkStatusCleared.Checked);
+
+
+        string Error = "";
+        Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
+        if (Error == "")
+        {
+            APayment.PaymentMethod = PaymentMethod;
+            APayment.Amount = Convert.ToDouble(Amount);
+            APayment.Currency = Currency;
+            APayment.PaymentDate = Convert.ToDateTime(PaymentDate);
+            APayment.StatusCleared = Convert.ToBoolean(StatusCleared);
+
+            /*clsPaymentCollection PaymentList = new clsPaymentCollection();
+
+            if (PaymentID == -1)
+            {
+                PaymentList.ThisPayment = APayment;
+                PaymentList.Add();
+            }
+            else
+            {
+                PaymentList.ThisPayment.Find(PaymentID);
+                PaymentList.ThisPayment = APayment;
+                PaymentList.Update();
+            }
+            */
+            Session["APayment"] = APayment;
+            Response.Redirect("PaymentViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
