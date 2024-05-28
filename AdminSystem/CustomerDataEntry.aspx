@@ -38,6 +38,7 @@
         </p>
         <p>
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 300px; position: absolute"></asp:Label>
+            <asp:Button ID="btnMainMenu" runat="server" OnClick="btnMainMenu_Click" style="z-index: 1; left: 195px; top: 339px; position: absolute" Text="Return to Main Menu" />
         </p>
         <p>
             <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 10px; top: 339px; position: absolute; height: 26px; right: 820px;" Text="OK" width="60px" />

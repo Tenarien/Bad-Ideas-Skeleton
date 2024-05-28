@@ -29,6 +29,8 @@ public partial class CustomerLogin : System.Web.UI.Page
         Password = Convert.ToString(txtPassword.Text);
         //find the record
         Found = AnUser.FindUser(UserName, Password);
+        //add a sessio to capture username
+        Session["AnUser"] = AnUser;
         //if username/password is emty
         if (txtUserName.Text == "")
         {
@@ -55,5 +57,11 @@ public partial class CustomerLogin : System.Web.UI.Page
             lblError.Text = "Login details are incorrect. Please try again.";
         }
 
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        //redirect to main menu
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }
