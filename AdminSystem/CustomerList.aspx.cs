@@ -17,6 +17,14 @@ public partial class _1_List : System.Web.UI.Page
             DisplayCustomers();
         }
 
+
+        //create new instance
+        clsCustomerUser AnUser = new clsCustomerUser();
+        //get data from session object
+        AnUser = (clsCustomerUser)Session["AnUser"];
+        //display username
+        Response.Write("Logged in as: " + AnUser.UserName);
+
     }
 
 
@@ -96,7 +104,7 @@ public partial class _1_List : System.Web.UI.Page
         //set name of primary key
         lstCustomerList.DataValueField = "CustomerId";
         //set name of field to display
-        lstCustomerList.DataTextField = "Email";
+        lstCustomerList.DataTextField = "CustomerEmail";
         //bind the data to list
         lstCustomerList.DataBind();
     }
@@ -114,8 +122,14 @@ public partial class _1_List : System.Web.UI.Page
         //set the name of primary key
         lstCustomerList.DataValueField = "CustomerId";
         //set name of field to display
-        lstCustomerList.DataTextField = "Email";
+        lstCustomerList.DataTextField = "CustomerEmail";
         //bind the data to list
         lstCustomerList.DataBind();
+    }
+
+    protected void btnMainMenu_Click(object sender, EventArgs e)
+    {
+        //redirect to main menu
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }

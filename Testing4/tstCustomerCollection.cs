@@ -236,17 +236,17 @@ namespace Testing4
             //variable to store the outcome
             Boolean OK = true;
             //apply a email that doesnt exist
-            FilteredCustomers.ReportByEmail("a@gmail.com");
+            FilteredCustomers.ReportByEmail("test@dmu.ac.uk");
             //check to see that the corect number of records are found
             if (FilteredCustomers.Count == 2)
             {
                 //checl to see that the first record is 20
-                if (FilteredCustomers.CustomerList[0].CustomerId != 69)
+                if (FilteredCustomers.CustomerList[0].CustomerId != 103)
                 {
                     OK = false;
                 }
                 //check to see that the first record is 21
-                if (FilteredCustomers.CustomerList[1].CustomerId != 72)
+                if (FilteredCustomers.CustomerList[1].CustomerId != 104)
                 {
                     OK = false;
                 }
