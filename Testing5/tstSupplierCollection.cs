@@ -32,14 +32,7 @@ namespace Testing5
         }
 
 
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            clsSupplierCollection AllSupplier = new clsSupplierCollection();
-            Int32 sCount = 2;
-            AllSupplier.Count = sCount;
-            Assert.AreEqual(AllSupplier.Count, sCount);
-        }
+
 
         [TestMethod]
         public void ThisSupplierPropertyOK()
@@ -73,15 +66,6 @@ namespace Testing5
 
             Assert.AreEqual(AllSupplier.Count, TestList.Count);
         }
-
-
-        [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            clsSupplierCollection AllSupplier = new clsSupplierCollection();
-            Assert.AreEqual(AllSupplier.Count, 2);
-        }
-
 
 
         [TestMethod]

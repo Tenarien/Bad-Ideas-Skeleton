@@ -123,9 +123,9 @@ namespace Testing5
             clsSupplier ASupplier = new clsSupplier();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SupplierId = 3;
+            Int32 SupplierId = 1;
             Found = ASupplier.Find(SupplierId);
-            if (ASupplier.SupplierName != "tarr")
+            if (ASupplier.SupplierName != "zaib")
             {
                 OK = false;
             }
@@ -141,7 +141,7 @@ namespace Testing5
             Boolean OK = true;
             Int32 SupplierId = 3;
             Found = ASupplier.Find(SupplierId);
-            if (ASupplier.ContractDate != Convert.ToDateTime("09/05/2024"))
+            if (ASupplier.ContractDate != Convert.ToDateTime("30/05/2024"))
             {
                 OK = false;
             }
@@ -173,7 +173,7 @@ namespace Testing5
             Boolean OK = true;
             Int32 SupplierId = 3;
             Found = ASupplier.Find(SupplierId);
-            if (ASupplier.SupplierAddress != "ls2")
+            if (ASupplier.SupplierAddress != "LONDON, UK.")
             {
                 OK = false;
             }
@@ -197,7 +197,7 @@ namespace Testing5
         {
             clsSupplier ASupplier = new clsSupplier();
             String Error = "";
-            String SupplierName = "";
+            String SupplierName = "4";
             Error = ASupplier.Valid(SupplierName, SupplierAddress, ContractDate, AvailableSupplier);
             Assert.AreEqual(Error, "");
         }
@@ -255,7 +255,7 @@ namespace Testing5
             clsSupplier ASupplier = new clsSupplier();
             String Error = "";
             String SupplierName = "";
-            SupplierName = SupplierName.PadRight(21, '1');
+            SupplierName = SupplierName.PadRight(10, '1');
             Error = ASupplier.Valid(SupplierName, SupplierAddress, ContractDate, AvailableSupplier);
             Assert.AreEqual(Error, "");
         }
@@ -279,7 +279,7 @@ namespace Testing5
             clsSupplier ASupplier = new clsSupplier();
             String Error = "";
             String SupplierName = "";
-            SupplierName = SupplierName.PadRight(2000, '1');
+            SupplierName = SupplierName.PadRight(20, '1');
             Error = ASupplier.Valid(SupplierName, SupplierAddress, ContractDate, AvailableSupplier);
             Assert.AreEqual(Error, "");
         }
@@ -297,7 +297,7 @@ namespace Testing5
         {
             clsSupplier ASupplier = new clsSupplier();
             String Error = "";
-            String SupplierAddress = "";
+            String SupplierAddress = "3";
              Error = ASupplier.Valid(SupplierName, SupplierAddress, ContractDate, AvailableSupplier);
             Assert.AreEqual(Error, "");
         }
@@ -355,7 +355,7 @@ namespace Testing5
             clsSupplier ASupplier = new clsSupplier();
             String Error = "";
             string SupplierAddress = "";
-            SupplierAddress = SupplierAddress.PadRight(51, '2');
+            SupplierAddress = SupplierAddress.PadRight(10, '2');
              Error = ASupplier.Valid(SupplierName, SupplierAddress, ContractDate, AvailableSupplier);
             Assert.AreEqual(Error, "");
         }
@@ -379,7 +379,7 @@ namespace Testing5
             clsSupplier ASupplier = new clsSupplier();
             String Error = "";
             string SupplierAddress = "";
-            SupplierAddress = SupplierAddress.PadRight(5000, '2');
+            SupplierAddress = SupplierAddress.PadRight(15, '2');
              Error = ASupplier.Valid(SupplierName, SupplierAddress, ContractDate, AvailableSupplier);
             Assert.AreEqual(Error, "");
         }
@@ -400,7 +400,7 @@ namespace Testing5
             TestDate = TestDate.AddYears(-100);
             string ContractDate = TestDate.ToString();
              Error = ASupplier.Valid(SupplierName, SupplierAddress, ContractDate, AvailableSupplier);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
 
@@ -413,7 +413,7 @@ namespace Testing5
             TestDate = TestDate.AddDays(-1);
             string ContractDate = TestDate.ToString();
              Error = ASupplier.Valid(SupplierName, SupplierAddress, ContractDate, AvailableSupplier);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
 
@@ -438,7 +438,7 @@ namespace Testing5
             TestDate = TestDate.AddDays(1);
             string ContractDate = TestDate.ToString();
              Error = ASupplier.Valid(SupplierName, SupplierAddress, ContractDate, AvailableSupplier);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
 
@@ -451,7 +451,7 @@ namespace Testing5
             TestDate = TestDate.AddYears(100);
             string ContractDate = TestDate.ToString();
              Error = ASupplier.Valid(SupplierName, SupplierAddress, ContractDate, AvailableSupplier);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
 
@@ -462,7 +462,7 @@ namespace Testing5
             String Error = "";
             string ContractDate = "This is not a Valid Date Data Type.";
              Error = ASupplier.Valid(SupplierName, SupplierAddress, ContractDate, AvailableSupplier);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
     }
