@@ -36,4 +36,9 @@ public partial class TeamMainMenu : System.Web.UI.Page
     {
         Response.Redirect("SupplierLogin.aspx");
     }
+
+    protected void btnPayment_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("PaymentLogin.aspx");
+    }
 }

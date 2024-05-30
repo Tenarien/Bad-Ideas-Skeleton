@@ -98,4 +98,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtStaffRole.Text = Staff.ThisStaff.StaffRole.ToString();
         chkPrivilage.Checked = Staff.ThisStaff.StaffPrivilage;
     }
+
+    protected void btnReturn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
 }
