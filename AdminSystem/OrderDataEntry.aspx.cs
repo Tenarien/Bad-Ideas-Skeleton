@@ -61,7 +61,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnOrder.CustomerId = Convert.ToInt32(CustomerId);
             AnOrder.StaffId = Convert.ToInt32(StaffId);
             AnOrder.OrderDate = Convert.ToDateTime(OrderDate);
-            AnOrder.TotalPrice = Convert.ToInt32(TotalPrice);
+            AnOrder.TotalPrice = Convert.ToDecimal(TotalPrice);
             AnOrder.ShippingAddress = ShippingAddress;
             AnOrder.ShippingStatus = chkShippingStatus.Checked;
             //create an instance of the order collection 

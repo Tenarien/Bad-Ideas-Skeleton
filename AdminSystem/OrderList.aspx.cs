@@ -62,7 +62,7 @@ public partial class _1_List : System.Web.UI.Page
             //redirect to the edit page 
             Response.Redirect("OrderDataEntry.aspx");
         }
-        else   //if no record has ben selected
+        else   //if no record has been selected
         {
             lblError.Text = "Please select a record from the list to edit";
         }
