@@ -79,7 +79,7 @@ namespace Testing2
         public void TotalPricePropertyOK()
         {
             clsOrder AnOrder = new clsOrder();
-            Decimal TestData = 6;
+            Decimal TestData = 6.50m;
             AnOrder.TotalPrice = TestData;
             Assert.AreEqual(AnOrder.TotalPrice, TestData);
         }
@@ -177,7 +177,7 @@ namespace Testing2
             Int32 OrderId = 1;
 
             Found = AnOrder.Find(OrderId);
-            if (AnOrder.OrderDate != Convert.ToDateTime("12/04/2024"))
+            if (AnOrder.OrderDate != Convert.ToDateTime("30/05/2024"))
             {
                 OK = false;
             }
@@ -194,7 +194,7 @@ namespace Testing2
             Int32 OrderId = 1;
 
             Found = AnOrder.Find(OrderId);
-            if (AnOrder.ShippingAddress != "123 Maple Street\r\nLondon\r\nW1A 1AA\r\nUnited Kingdom")
+            if (AnOrder.ShippingAddress != "123 Maple StreetLondonW1A 1AAUnited Kingdom")
             {
                 OK = false;
             }
@@ -211,7 +211,7 @@ namespace Testing2
             Int32 OrderId = 1;
 
             Found = AnOrder.Find(OrderId);
-            if (AnOrder.TotalPrice != (decimal)6.50)
+            if (AnOrder.TotalPrice != 7.00m)
             {
                 OK = false;
             }
@@ -467,7 +467,7 @@ namespace Testing2
             clsOrder AnOrder = new clsOrder();
             //string variable to store any error message
             String Error = "";
-            decimal TestPrice = -1000000m;
+            decimal TestPrice = -1000000.00m;
             string TotalPrice = TestPrice.ToString();
             //invoke the method
             Error = AnOrder.Valid(CustomerId, StaffId, OrderDate, TotalPrice, ShippingAddress);

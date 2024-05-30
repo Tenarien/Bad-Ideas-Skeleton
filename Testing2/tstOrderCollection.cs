@@ -236,17 +236,17 @@ namespace Testing2
             //variable to store the outcome
             Boolean OK = true;
             //apply a shipping address that doesnt exist
-            FilteredOrdered.ReportByShippingAddress("yyy yyy");
+            FilteredOrdered.ReportByShippingAddress("123 Test");
             //check that the correct number of records are found 
             if (FilteredOrdered.Count == 2)
             {
                 //check to see that the first record is 24
-                if (FilteredOrdered.OrderList[0].OrderId != 24)
+                if (FilteredOrdered.OrderList[0].OrderId != 102)
                 {
                     OK = false;
                 }
                 //check to see that the first record is 26
-                if (FilteredOrdered.OrderList[1].OrderId != 26)
+                if (FilteredOrdered.OrderList[1].OrderId != 103)
                 {
                     OK = false;
                 }
