@@ -546,7 +546,7 @@ namespace Testing2
             //invoke the method
             Error = AnOrder.Valid(CustomerId, StaffId, OrderDate, TotalPrice, ShippingAddress);
             //test to see that the result is correct 
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
 
         }
 
@@ -562,7 +562,7 @@ namespace Testing2
             //invoke the method
             Error = AnOrder.Valid(CustomerId, StaffId, OrderDate, TotalPrice, ShippingAddress);
             //test to see that the result is correct 
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
 
         }
 
@@ -610,7 +610,7 @@ namespace Testing2
             //invoke the method
             Error = AnOrder.Valid(CustomerId, StaffId, OrderDate, TotalPrice, ShippingAddress);
             //test to see that the result is correct 
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -625,7 +625,7 @@ namespace Testing2
             //invoke the method
             Error = AnOrder.Valid(CustomerId, StaffId, OrderDate, TotalPrice, ShippingAddress);
             //test to see that the result is correct 
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
 
         }
 
@@ -641,7 +641,7 @@ namespace Testing2
             //invoke the method
             Error = AnOrder.Valid(CustomerId, StaffId, OrderDate, TotalPrice, ShippingAddress);
             //test to see that the result is correct 
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
 
         }
 
@@ -687,7 +687,7 @@ namespace Testing2
             //invoke the method
             Error = AnOrder.Valid(CustomerId, StaffId, OrderDate, TotalPrice, ShippingAddress);
             //test to see that the result is correct 
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
        

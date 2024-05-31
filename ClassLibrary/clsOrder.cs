@@ -141,8 +141,8 @@ namespace ClassLibrary
             //create a temporary variable to store the date values 
             DateTime DateTemp;
             Decimal PriceTemp;
-            int CustomerTemp;
-            int StaffTemp; 
+            Int32 CustomerTemp;
+            Int32 StaffTemp; 
 
 
             //if the ShippingAddress is blank 
@@ -200,10 +200,10 @@ namespace ClassLibrary
 
             try
             {
-                CustomerTemp = Convert.ToInt32(CustomerId);
-                if (CustomerTemp < 0.00m)
+                CustomerTemp = Convert.ToInt32(customerId);
+                if (CustomerTemp < 1)
                 {
-                    Error = Error + "The CustomerId cannot be negative : ";
+                    Error = Error + "The CustomerId cannot be less than one   : ";
                 }
             }
             catch
@@ -213,10 +213,10 @@ namespace ClassLibrary
 
             try
             {
-                    StaffTemp = Convert.ToInt32(StaffId);
-                if (StaffTemp < 0.00m)
+                    StaffTemp = Convert.ToInt32(staffId);
+                if (StaffTemp < 1)
                 {
-                    Error = Error + "The StaffId cannot be negative : ";
+                    Error = Error + "The StaffId cannot be less than one : ";
                 }
             }
             catch
