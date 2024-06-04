@@ -20,6 +20,7 @@
           <asp:Label ID="lblPaymentMethod" runat="server" style="z-index: 1; left: 72px; top: 459px; position: absolute" Text="Enter Payment Method"></asp:Label>
         </div>
             <asp:Button ID="lblClearFilter" runat="server" OnClick="lblClearFilter_Click" style="z-index: 1; left: 212px; top: 559px; position: absolute; width: 89px;" Text="Clear Filter" />
+        <asp:Button ID="btnTeamMainMenu" runat="server" OnClick="btnTeamMainMenu_Click" style="z-index: 1; left: 460px; top: 387px; position: absolute" Text="Return to Team Main Menu" />
     </form>
 </body>
 </html>

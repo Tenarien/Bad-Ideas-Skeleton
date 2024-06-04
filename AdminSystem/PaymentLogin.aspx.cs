@@ -26,6 +26,8 @@ public partial class PaymentLogin : System.Web.UI.Page
         Password = Convert.ToString(txtPassword.Text);
 
         Found = AnUser.FindUser(UserName, Password);
+
+        Session["AnUser"] = AnUser;
         if (txtUserName.Text == "")
         {
             lblError.Text = "Enter UserName.";
@@ -43,5 +45,10 @@ public partial class PaymentLogin : System.Web.UI.Page
         {
             lblError.Text = "Login Details are incorrect here in the fields";
         }
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }
