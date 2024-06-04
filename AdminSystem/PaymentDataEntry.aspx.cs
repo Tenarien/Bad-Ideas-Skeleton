@@ -18,6 +18,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
             {
                 DisplayPayment();
             }
+            clsPaymentUser AnUser = new clsPaymentUser();
+            AnUser = (clsPaymentUser)Session["AnUser"];
+            Response.Write("Logged in as : " + AnUser.UserName);
         }
     }
 
@@ -99,5 +102,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtCurrency.Text = APayment.Currency;
             chkStatusCleared.Checked = APayment.StatusCleared;
         }
+    }
+
+    protected void btnTeamMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }

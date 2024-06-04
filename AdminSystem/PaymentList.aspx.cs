@@ -14,6 +14,9 @@ public partial class _1_List : System.Web.UI.Page
         {
             DisplayPayments();
         }
+        clsPaymentUser AnUser = new clsPaymentUser();
+        AnUser = (clsPaymentUser)Session["AnUser"];
+        Response.Write("Logged in as : " + AnUser.UserName);
     }
 
     void DisplayPayments()
@@ -81,5 +84,10 @@ public partial class _1_List : System.Web.UI.Page
         lstPaymentList.DataValueField = "PaymentID";
         lstPaymentList.DataTextField = "Amount";
         lstPaymentList.DataBind();
+    }
+
+    protected void btnTeamMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }
