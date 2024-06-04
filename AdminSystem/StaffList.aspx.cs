@@ -98,4 +98,11 @@ public partial class _1_List : System.Web.UI.Page
 
         lstStaffList.DataBind();
     }
+
+    protected void btnMenu_Click(object sender, EventArgs e)
+    {
+        clsStaffUser AnUser = (clsStaffUser)Session["AnUser"];
+        Session["AnUser"] = null;
+        Response.Redirect("TeamMainMenu.aspx");
+    }
 }

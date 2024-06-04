@@ -15,6 +15,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="btnMenu" runat="server" OnClick="btnMenu_Click" style="z-index: 1; top: 428px; position: absolute; left: 288px" Text="Return To Main Menu" />
             <asp:ListBox ID="lstStaffList" runat="server" Height="304px" Width="321px" style="margin-top: 7px; margin-bottom: 2px"></asp:ListBox>
             <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" style="z-index: 1; left: 68px; top: 346px; position: absolute" Text="Edit" />
             <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" style="z-index: 1; left: 10px; top: 346px; position: absolute" Text="Add" />
