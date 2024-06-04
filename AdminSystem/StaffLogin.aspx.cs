@@ -10,7 +10,14 @@ public partial class StaffLogin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Retrieve the session object
+        clsStaffUser AnUser = (clsStaffUser)Session["AnUser"];
 
+        // Check if the user is logged in
+        if (AnUser != null)
+        {
+            Response.Redirect("StaffList.aspx");
+        }
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
