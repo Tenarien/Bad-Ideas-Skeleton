@@ -89,7 +89,7 @@ public partial class _1_List : System.Web.UI.Page
         else
         {
             //display an error message
-            lblError.Text = "Please delect a record from the list to delete";
+            lblError.Text = "Please select a record from the list to delete";
         }
     }
 
@@ -97,14 +97,14 @@ public partial class _1_List : System.Web.UI.Page
     {
         //create an instance of the class we want to create
         clsCustomerCollection AnCustomer = new clsCustomerCollection();
-        //retrieve the value of email from presentation layer
-        AnCustomer.ReportByEmail(txtFilter.Text);
+        //retrieve the value of firstname from presentation layer
+        AnCustomer.ReportByCustomerFirstName(txtFilter.Text);
         //set the datasource
         lstCustomerList.DataSource = AnCustomer.CustomerList;
         //set name of primary key
         lstCustomerList.DataValueField = "CustomerId";
         //set name of field to display
-        lstCustomerList.DataTextField = "CustomerEmail";
+        lstCustomerList.DataTextField = "CustomerFirstName";
         //bind the data to list
         lstCustomerList.DataBind();
     }
@@ -114,15 +114,15 @@ public partial class _1_List : System.Web.UI.Page
         //create an instance of the class we want to create
         clsCustomerCollection AnCustomer = new clsCustomerCollection();
         //set an empty string
-        AnCustomer.ReportByEmail("");
-        //clear any existing filter
+        AnCustomer.ReportByCustomerFirstName("");
+        //clear any existing filter to tidy up interface
         txtFilter.Text = "";
-        //set the data source to the lst of customers in collections
+        //set the datasource
         lstCustomerList.DataSource = AnCustomer.CustomerList;
-        //set the name of primary key
+        //set name of primary key
         lstCustomerList.DataValueField = "CustomerId";
         //set name of field to display
-        lstCustomerList.DataTextField = "CustomerEmail";
+        lstCustomerList.DataTextField = "CustomerFirstName";
         //bind the data to list
         lstCustomerList.DataBind();
     }

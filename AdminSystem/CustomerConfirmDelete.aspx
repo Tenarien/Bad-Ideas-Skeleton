@@ -11,9 +11,9 @@
         <div>
         </div>
         <asp:Label ID="lblConfirmDelete" runat="server" Text="Are you sure you want to delete this record?"></asp:Label>
-        <p>
-            <asp:Button ID="btnYes" runat="server" Text="Yes" OnClick="btnYes_Click" />
-        <asp:Button ID="btnNo" runat="server" Text="No" OnClick="btnNo_Click" />
+        <p style="height: 335px">
+            <asp:Button ID="btnYes" runat="server" Text="Yes" OnClick="btnYes_Click" style="position: absolute; z-index: 1; left: 10px; top: 72px" />
+        <asp:Button ID="btnNo" runat="server" Text="No" OnClick="btnNo_Click" style="position: absolute; z-index: 1; left: 147px; top: 70px" />
         </p>
     </form>
 </body>
