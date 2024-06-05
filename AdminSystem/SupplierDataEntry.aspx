@@ -9,7 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <p>
-            This is the AddressBook Data Entry page</p>
+            <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 30px; top: 35px; position: absolute" Text="This is the AddressBook Data Entry page"></asp:Label>
+        </p>
         <asp:Label ID="lblAddressId" runat="server" style="z-index: 1; left: 24px; top: 68px; position: absolute; width: 101px" Text="SupplierId"></asp:Label>
         <asp:TextBox ID="txtSupplierId" runat="server" style="z-index: 1; left: 161px; top: 70px; position: absolute;"></asp:TextBox>
         <asp:TextBox ID="txtSupplierName" runat="server" style="z-index: 1; left: 160px; top: 115px; position: absolute"></asp:TextBox>
@@ -34,8 +35,9 @@
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 26px; top: 337px; position: absolute; height: 15px; width: 592px; right: 354px;"></asp:Label>
         <p>
             <asp:CheckBox ID="chkAvailableSupplier" runat="server" style="z-index: 1; left: 155px; top: 285px; position: absolute" Text="AvailableSupplier" />
+            <asp:Button ID="btnteammainMenu" runat="server" OnClick="btnteammainMenu_Click" style="z-index: 1; left: 370px; top: 422px; position: absolute" Text="Return to Main Menu" />
         </p>
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 290px; top: 412px; position: absolute" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 210px; top: 421px; position: absolute; right: 1120px;" Text="Cancel" OnClick="btnCancel_Click" />
         <asp:Button ID="btnok" runat="server" OnClick="btnok_Click" style="z-index: 1; left: 69px; top: 423px; position: absolute; width: 40px; height: 21px" Text="OK" />
     </form>
 </body>
