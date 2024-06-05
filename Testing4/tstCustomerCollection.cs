@@ -203,26 +203,26 @@ namespace Testing4
 
         [TestMethod]
 
-        public void ReportByCustomerEmailMethodOK()
+        public void ReportByCustomerFirstNameMethodOK()
         {
             //create an instance of the class we want to create
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
             //create an istance of the filtered data
             clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
             //apply a blank string (should return all)
-            FilteredCustomers.ReportByEmail("");
+            FilteredCustomers.ReportByCustomerFirstName("");
             //test to see that the 2 values are the same
             Assert.AreEqual(AllCustomers.Count, FilteredCustomers.Count);
         }
 
 
         [TestMethod]
-        public void ReportByCustomerEmailNoneFound()
+        public void ReportByCustomerFirstNameNoneFound()
         {
             //create an istance of the filtered data
             clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
             //apply a email that doesnt exist
-            FilteredCustomers.ReportByEmail("a@gmail.com");
+            FilteredCustomers.ReportByCustomerFirstName("faker");
             //test to see that there are no records
             Assert.AreEqual(0, FilteredCustomers.Count);
         }
@@ -236,7 +236,7 @@ namespace Testing4
             //variable to store the outcome
             Boolean OK = true;
             //apply a email that doesnt exist
-            FilteredCustomers.ReportByEmail("test@dmu.ac.uk");
+            FilteredCustomers.ReportByCustomerFirstName("test");
             //check to see that the corect number of records are found
             if (FilteredCustomers.Count == 2)
             {

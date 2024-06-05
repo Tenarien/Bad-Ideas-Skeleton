@@ -120,15 +120,15 @@ namespace ClassLibrary
         }
 
 
-        public void ReportByEmail(string CustomerEmail)
+        public void ReportByCustomerFirstName(string CustomerFirstName)
         {
             //filter the records based on full or partial email
             //connect to database
             clsDataConnection DB = new clsDataConnection();
             //send email paramater to the database
-            DB.AddParameter("@CustomerEmail", CustomerEmail);
+            DB.AddParameter("@CustomerFirstname", CustomerFirstName);
             //execute the stored procedure
-            DB.Execute("sproc_tblCustomer_FilterByCustomerEmail");
+            DB.Execute("sproc_tblCustomer_FilterByCustomerFirstname");
             //populate the array list with the datatable
             PopulateArray(DB);
         }
