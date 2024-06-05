@@ -17,7 +17,7 @@
         <p>
             &nbsp;</p>
         <p>
-            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 13px; top: 484px; position: absolute" Text="lblError"></asp:Label>
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 13px; top: 484px; position: absolute"></asp:Label>
             <asp:Button ID="btnApplyFilter" runat="server" OnClick="btnApplyFilter_Click" style="z-index: 1; left: 21px; top: 433px; position: absolute" Text="Apply Filter" />
             <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" style="z-index: 1; left: 154px; top: 432px; position: absolute" Text="Clear Filter" />
         </p>
