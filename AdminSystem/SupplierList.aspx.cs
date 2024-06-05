@@ -14,6 +14,9 @@ public partial class _1_List : System.Web.UI.Page
         {
             DisplaySuppliers();
         }
+        clsSupplierUser AnUser = new clsSupplierUser();
+        AnUser = (clsSupplierUser)Session["AnUser"];
+        Response.Write("Logged in a:" + AnUser.UserName);
     }
 
     void DisplaySuppliers()
@@ -91,5 +94,10 @@ public partial class _1_List : System.Web.UI.Page
         lstSupplierList.DataValueField = "SupplierId";
         lstSupplierList.DataTextField = "SupplierName";
         lstSupplierList.DataBind();
+    }
+
+    protected void btnteammainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }
