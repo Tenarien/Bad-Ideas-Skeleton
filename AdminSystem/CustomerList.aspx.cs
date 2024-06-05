@@ -89,7 +89,7 @@ public partial class _1_List : System.Web.UI.Page
         else
         {
             //display an error message
-            lblError.Text = "Please delect a record from the list to delete";
+            lblError.Text = "Please select a record from the list to delete";
         }
     }
 
