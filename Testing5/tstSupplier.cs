@@ -95,7 +95,7 @@ namespace Testing5
         {
             clsSupplier ASupplier = new clsSupplier();
             Boolean Found = false;
-            Int32 SupplierId = 3;
+            Int32 SupplierId = 1;
             Found = ASupplier.Find(SupplierId);
             Assert.IsTrue(Found);
 
@@ -107,9 +107,9 @@ namespace Testing5
             clsSupplier ASupplier = new clsSupplier();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SupplierId = 3;
+            Int32 SupplierId = 1;
             Found = ASupplier.Find(SupplierId);
-            if (ASupplier.SupplierId != 3)
+            if (ASupplier.SupplierId != 1)
             {
                 OK = false;
             }
@@ -139,9 +139,9 @@ namespace Testing5
             clsSupplier ASupplier = new clsSupplier();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SupplierId = 3;
+            Int32 SupplierId = 1;
             Found = ASupplier.Find(SupplierId);
-            if (ASupplier.ContractDate != Convert.ToDateTime("30/05/2024"))
+            if (ASupplier.ContractDate != Convert.ToDateTime("09-05-2024"))
             {
                 OK = false;
             }
@@ -155,7 +155,7 @@ namespace Testing5
             clsSupplier ASupplier = new clsSupplier();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SupplierId = 3;
+            Int32 SupplierId = 1;
             Found = ASupplier.Find(SupplierId);
             if (ASupplier.AvailableSupplier != true)
             {
@@ -171,9 +171,9 @@ namespace Testing5
             clsSupplier ASupplier = new clsSupplier();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SupplierId = 3;
+            Int32 SupplierId = 1;
             Found = ASupplier.Find(SupplierId);
-            if (ASupplier.SupplierAddress != "LONDON, UK.")
+            if (ASupplier.SupplierAddress != "le3")
             {
                 OK = false;
             }
