@@ -86,6 +86,15 @@ namespace ClassLibrary
                 Error += "Payment Method cant be more than 15 words.";
             }
 
+            if (currency.Length <= 0)
+            {
+                Error += "Currency should have atleast one Character";
+            }
+            if (currency.Length > 20)
+            {
+                Error += "Currency cant be more than 20 words.";
+            }
+
             try
             {
                 TestAmount = Convert.ToDouble(amount);

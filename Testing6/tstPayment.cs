@@ -202,7 +202,7 @@ namespace Testing6
             String Error = "";
             String PaymentMethod = "";
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
 
@@ -257,7 +257,7 @@ namespace Testing6
             String PaymentMethod = "";
             PaymentMethod = PaymentMethod.PadRight(16, 'C');
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void PaymentMethodMid()
@@ -277,7 +277,7 @@ namespace Testing6
             String PaymentMethod = "";
             PaymentMethod = PaymentMethod.PadRight(200, 'C');
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void AmountExtremeMin()
@@ -287,7 +287,7 @@ namespace Testing6
             Double TestAmount = -500.00;
             String Amount = TestAmount.ToString();
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void AmountMinLessOne()
@@ -297,7 +297,7 @@ namespace Testing6
             Double TestAmount = 0;
             String Amount = TestAmount.ToString();
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void AmountMin()
@@ -347,7 +347,7 @@ namespace Testing6
             Double TestAmount = 2501.99;
             String Amount = TestAmount.ToString();
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void AmountMid()
@@ -367,7 +367,7 @@ namespace Testing6
             Double TestAmount = 12000;
             String Amount = TestAmount.ToString();
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void AmountInvalidData()
@@ -376,7 +376,93 @@ namespace Testing6
             String Error = "";
             String Amount = "Invalid datatype";
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void CurrencyMinLessOne()
+        {
+            clsPayment APayment = new clsPayment();
+            String Error = "";
+            String Currency = "";
+            Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void CurrencyMin()
+        {
+            clsPayment APayment = new clsPayment();
+            String Error = "";
+            String Currency = "C";
+            Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
             Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void CurrencyMinPlusOne()
+        {
+            clsPayment APayment = new clsPayment();
+            String Error = "";
+            String Currency = "CA";
+            Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void CurrencyMaxLessOne()
+        {
+            clsPayment APayment = new clsPayment();
+            String Error = "";
+            String Currency = "";
+            Currency = Currency.PadRight(19, 'C');
+            Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CurrencyMax()
+        {
+            clsPayment APayment = new clsPayment();
+            String Error = "";
+            String Currency = "";
+            Currency = Currency.PadRight(20, 'C');
+            Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CurrencyMaxPlusOne()
+        {
+            clsPayment APayment = new clsPayment();
+            String Error = "";
+            String Currency = "";
+            Currency = Currency.PadRight(21, 'C');
+            Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CurrencyMid()
+        {
+            clsPayment APayment = new clsPayment();
+            String Error = "";
+            String Currency = "";
+            Currency = Currency.PadRight(10, 'C');
+            Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CurrencyExtremeMAX()
+        {
+            clsPayment APayment = new clsPayment();
+            String Error = "";
+            String Currency = "";
+            Currency = Currency.PadRight(200, 'C');
+            Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
+            Assert.AreNotEqual(Error, "");
         }
 
 
@@ -390,7 +476,7 @@ namespace Testing6
             TestDate = TestDate.AddYears(-100);
             string PaymentDate = TestDate.ToString();
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
 
@@ -403,7 +489,7 @@ namespace Testing6
             TestDate = TestDate.AddDays(-1);
             string PaymentDate = TestDate.ToString();
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
 
@@ -428,7 +514,7 @@ namespace Testing6
             TestDate = TestDate.AddDays(1);
             string PaymentDate = TestDate.ToString();
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
 
@@ -441,7 +527,7 @@ namespace Testing6
             TestDate = TestDate.AddYears(100);
             string PaymentDate = TestDate.ToString();
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
 
@@ -452,7 +538,7 @@ namespace Testing6
             String Error = "";
             string PaymentDate = "Invalid Date.";
             Error = APayment.Valid(PaymentDate, PaymentMethod, Amount, Currency, StatusCleared);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
     }
 }
