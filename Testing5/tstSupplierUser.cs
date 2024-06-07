@@ -65,7 +65,7 @@ namespace Testing5
             Boolean Found = false;
 
             string UserName = "Shahzaib";
-            string Password = "1111";
+            string Password = "Pakistan284";
 
             Found = AnUser.FindUser(UserName, Password);
             Assert.IsTrue(Found);
@@ -83,7 +83,7 @@ namespace Testing5
             Boolean Ok = true;
 
             string UserName = "Shahzaib";
-            string Password = "1111";
+            string Password = "Pakistan284";
 
             Found = AnUser.FindUser(UserName, Password);
             if (AnUser.UserName != UserName && AnUser.Password != Password)
