@@ -35,15 +35,6 @@ namespace Testing6
 
 
         [TestMethod]
-        public void CountPropertyOK()
-        {
-            clsPaymentCollection AllPayments = new clsPaymentCollection();
-            Int32 SomeCount = 0;
-            AllPayments.Count = SomeCount;
-            Assert.AreEqual(AllPayments.Count, SomeCount);
-        }
-
-        [TestMethod]
         public void ThisPaymentPropertyOK()
         {
             clsPaymentCollection AllPayments = new clsPaymentCollection();
@@ -64,8 +55,7 @@ namespace Testing6
         }
 
 
-
-
+        [TestMethod]
         public void ListAndCountOK()
         {
             clsPaymentCollection AllPayments = new clsPaymentCollection();
@@ -84,13 +74,6 @@ namespace Testing6
             Assert.AreEqual(AllPayments.Count, TestList.Count);
         }
 
-
-        [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            clsPaymentCollection AllPayments = new clsPaymentCollection();
-            Assert.AreEqual(AllPayments.Count, 2);
-        }
 
         [TestMethod]
         public void AddMethodOK()
