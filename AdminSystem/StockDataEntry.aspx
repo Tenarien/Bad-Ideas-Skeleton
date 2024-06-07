@@ -25,7 +25,7 @@
         <asp:TextBox ID="txtSupplierId" runat="server" style="z-index: 1; left: 112px; top: 307px; position: absolute" width="128px"></asp:TextBox>
         <asp:CheckBox ID="chkAvailable" runat="server" style="z-index: 1; left: 112px; top: 351px; position: absolute" Text="Available" />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 112px; top: 396px; position: absolute"></asp:Label>
-        <asp:Button ID="btnCancel" runat="server"  style="z-index: 1; left: 169px; top: 444px; position: absolute; right: 1896px;" Text="Cancel" height="26px" Width="60px"/>
+        <asp:Button ID="btnCancel" runat="server"  style="z-index: 1; left: 169px; top: 444px; position: absolute; right: 1896px;" Text="Cancel" height="26px" Width="60px" OnClick="btnCancel_Click"/>
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 112px; top: 444px; position: absolute; height: 26px;" Text="OK" />
         <asp:Button ID="btnMainMenu" runat="server" OnClick="btnMainMenu_Click" style="z-index: 1; left: 253px; top: 444px; position: absolute; width: 137px; height: 26px;" Text="Return to Main Menu" />
     </form>
